@@ -1,0 +1,81 @@
+/* ------ index ------ */
+// 1. LoginPage
+
+/* ------ mixin ------ */
+@mixin width-height($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin flex-center($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+// 복붙해서 쓰기
+// @include width-height( , );
+// @include flex-center(row 또는 column);
+// @include absolute-center;
+
+/* *******   1. LoginPage   ******* */
+.Login_wrap {
+  @include width-height(90vw, 90vh);
+  @include flex-center(column);
+  @include absolute-center;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 60px rgb(225, 160, 115, 0.3);
+}
+
+.Login_wrap .h1_title {
+  font-family: "yg-jalnan";
+  color: #ef9965;
+  font-size: 48px;
+  margin-bottom: 100px;
+}
+
+.Login_wrap .form_login {
+  @include flex-center(column);
+}
+
+.Login_wrap .input_Login {
+  all: unset;
+  width: 400px;
+  border-bottom: #ef9965 1px solid;
+  line-height: 40px;
+  margin: 15px;
+}
+
+.Login_wrap .btn_login {
+  all: unset;
+  @include width-height(300px, 70px);
+  margin: 50px;
+  background-color: #ef9965;
+  border-radius: 14px;
+  color: #fff;
+  @include flex-center(row);
+  cursor: pointer;
+  &:hover {
+    transform: scale(0.99);
+  }
+}
+
+.Login_wrap .div_joinWrap {
+  width: 180px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: gray;
+  p {
+    cursor: pointer;
+    &:hover {
+      color: #ef9965;
+    }
+  }
+}
