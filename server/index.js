@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const config = require("./config/key");
 const { User } = require("./models/User");
 const { auth } = require("./middleware/auth");
+const { GuestBook } = require("./models/GuestBook");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -91,4 +92,26 @@ app.get("/api/users/logout", auth, (req, res) => {
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
+});
+
+// ========================================================
+// # 방명록 글쓰기
+app.post("/api/guestBook/post", (req, res) => {
+  const user = new GuestBook(req.body);
+
+  user.save((err, text) => {
+    if (err) return res.json({ success: false, err });
+    return res.status(200).json({
+      success: true,
+    });
+  });
+});
+
+// # 방명록
+app.get("/api/guestBook", auth, (req, res) => {
+  // res.status(200).json({
+  res.status(200).send({
+    _id: req.guestBook._id,
+    text: req.guestBook.text,
+  });
 });

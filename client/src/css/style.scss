@@ -2,7 +2,8 @@
 // 1. LoginPage & RegisterPage
 // 2. MY WORLD PAGE
 //   2-0: 공통
-//   2-1: Home
+//   2-1: home탭
+//   2-1: diary탭
 
 /* ------ mixin ------ */
 @mixin width-height($width, $height) {
@@ -97,76 +98,86 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  .frame {
+    @include width-height(100%, 100%);
+    @include flex-center(row);
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: #f8f2e7;
+    border-radius: 20px;
+    box-shadow: 0px 0px 60px rgb(225, 160, 115, 0.5);
+    .innerFrame {
+      @include width-height(100%, 100%);
+      border-radius: 20px;
+      background-color: #fff;
+    }
+  }
 }
 // nav bar
 .Nav_wrap .ul_menu {
-  @include flex-center(column);
+  display: flex;
+  flex-direction: column;
   transform: translateY(-20vh);
-
-  li {
-    @include width-height(130px, 80px);
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
-    margin: 7px 0;
-    background-color: #f8f2e7;
-    font-family: "GangwonEduPowerExtraBoldA";
-    text-align: center;
-    line-height: 80px;
-    color: #ea7c3a;
-    font-size: 20px;
-  }
 }
 
-// ==== 2-1. home ====
-.home_wrap {
-  @include width-height(100%, 100%);
-  @include flex-center(row);
-  padding: 30px;
-  box-sizing: border-box;
-  background-color: #f8f2e7;
+// ==== 2-1. home탭 ====
+
+//프로필 박스(좌측)
+.left_wrap {
+  @include width-height(500px, 100%);
+  @include flex-center(column);
+  margin-right: 30px;
+  background-color: #fff;
   border-radius: 20px;
-  box-shadow: 0px 0px 60px rgb(225, 160, 115, 0.5);
-  //프로필 박스(좌측)
-  .left_wrap {
-    @include width-height(500px, 100%);
-    @include flex-center(column);
-    margin-right: 30px;
-    background-color: #fff;
-    border-radius: 20px;
-    .profile_imgBox {
-      @include width-height(220px, 220px);
-      img {
-        border-radius: 50%;
-        width: 100%;
-      }
-    }
-    .btn_logout {
-      all: unset;
-      background-color: #eee9;
-      border: 1px solid #eee;
-      padding: 10px 50px;
-      border-radius: 20px;
-      color: gray;
-      cursor: pointer;
-      &:hover {
-        color: #333;
-        background-color: #eee;
-      }
-    }
-    ul {
-      margin: 50px;
-      li {
-        margin: 10px;
-        &:last-child {
-          color: #888;
-        }
-      }
+  .profile_imgBox {
+    @include width-height(220px, 220px);
+    img {
+      border-radius: 50%;
+      width: 100%;
     }
   }
-  //컨텐츠박스(우측)
-  .right_wrap {
-    @include width-height(100%, 100%);
+  .btn_logout {
+    all: unset;
+    background-color: #eee9;
+    border: 1px solid #eee;
+    padding: 10px 50px;
     border-radius: 20px;
-    background-color: #fff;
+    color: gray;
+    cursor: pointer;
+    &:hover {
+      color: #333;
+      background-color: #eee;
+    }
+  }
+  ul {
+    margin: 50px;
+    li {
+      margin: 10px;
+      &:last-child {
+        color: #888;
+      }
+    }
   }
 }
+//컨텐츠박스(우측)
+.right_wrap {
+  @include width-height(100%, 100%);
+  // @include flex-center(row);
+  border-radius: 20px;
+  background-color: #fff;
+  .guestBook-wrap {
+    @include width-height(100%, 50%);
+    display: flex;
+    justify-content: center;
+    background-color: #eee;
+
+    input {
+      @include width-height(80%, 30px);
+      // all: unset;
+      margin: 20px;
+      background-color: #ddd;
+    }
+  }
+}
+
+// ==== 2-1. diary탭 ====

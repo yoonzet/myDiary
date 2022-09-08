@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Auth from "../../../hoc/auth";
 import Nav from "../Nav/Nav";
+import Calendar from "./Calendar";
+import GuestBook from "./GuestBook";
 import ProfileBox from "./ProfileBox";
 
 function HomePage() {
@@ -26,9 +28,11 @@ function HomePage() {
   return (
     <>
       <div className="frame_wrap">
-        <div className="home_wrap">
+        <div className="frame">
           <ProfileBox user={user} onClickHandler={onClickHandler} />
-          <div className="right_wrap"></div>
+          <div className="right_wrap">
+            <GuestBook />
+          </div>
         </div>
         <Nav />
       </div>
