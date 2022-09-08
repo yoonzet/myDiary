@@ -6,13 +6,19 @@ import {
   Link,
   BrowserRouter,
 } from "react-router-dom";
-import LoginPage from "./components/LoginPage/LoginPage";
+import HomePage from "./components/views/HomePage/HomePage";
+import DiaryPage from "./components/views/DiaryPage/DiaryPage";
+import LoginPage from "./components/views/LoginPage/LoginPage";
+import RegisterPage from "./components/views/RegisterPage/RegisterPage";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<LoginPage />} />
+        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/diary" element={<DiaryPage />} />
+        <Route exact path="/login" element={<LoginPage />} />
+        <Route exact path="/register" element={<RegisterPage />} />
       </Routes>
     </BrowserRouter>
   );

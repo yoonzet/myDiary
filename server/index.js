@@ -16,13 +16,7 @@ mongoose
   .then(() => console.log("몽고디비 연결됨"))
   .catch((err) => console.log(err));
 
-app.get("/", (req, res) => res.send("Hello World!zzkkkkl"));
-
-app.get("/api/hello", (req, res) => {
-  res.send("hello~~!");
-});
-
-// #07 회원가입 기능
+// # 회원가입 기능
 // 회원가입할때 필요한 정보들을 클라이언트에서 가져오면 그것들을 데이터베이스에 넣어준다.
 app.post("/api/users/register", (req, res) => {
   const user = new User(req.body);
@@ -37,7 +31,7 @@ app.post("/api/users/register", (req, res) => {
   });
 });
 
-// #11,12 로그인 기능
+// # 로그인 기능
 app.post("/api/users/login", (req, res) => {
   // 1. DB에서 요청한 이메일 찾기
   User.findOne({ email: req.body.email }, (err, user) => {
@@ -69,7 +63,7 @@ app.post("/api/users/login", (req, res) => {
   });
 });
 
-// #13 Auth기능
+// # Auth기능
 //auth(두번째 파라미터)는 미들웨어역할로 엔드포인트(첫번째 파라미터)를 리퀘스트 받음다음 3번째 파라미터의 콜백함수를 실행하기전에 실행한다.
 app.get("/api/users/auth", auth, (req, res) => {
   // 미들웨어를 통과 했으므로 Authentication이 true라는 말.
@@ -77,6 +71,7 @@ app.get("/api/users/auth", auth, (req, res) => {
     _id: req.user._id,
     isAdmin: req.user.role === 0 ? false : true,
     isAuth: true,
+    name: req.user.name,
     email: req.user.email,
     lastName: req.user.lastName,
     role: req.user.role,
@@ -84,7 +79,7 @@ app.get("/api/users/auth", auth, (req, res) => {
   });
 });
 
-// #14 로그아웃기능
+// # 로그아웃기능
 app.get("/api/users/logout", auth, (req, res) => {
   User.findOneAndUpdate({ _id: req.user._id }, { token: "" }, (err, user) => {
     if (err) return res.json({ success: false, err });

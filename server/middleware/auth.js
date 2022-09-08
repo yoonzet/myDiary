@@ -1,4 +1,4 @@
-// #13 Auth기능만들기
+// # Auth기능만들기
 const { User } = require("../models/User");
 let auth = (req, res, next) => {
   // 인증처리를 하는곳
