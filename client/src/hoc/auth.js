@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { auth } from "../redux/user";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 // # 인증체크
 export default function Auth(SpecificComponent, option, adminRoute = null) {
@@ -10,12 +11,10 @@ export default function Auth(SpecificComponent, option, adminRoute = null) {
   //false   =>  로그인한 유저는 출입 불가능한 페이지
   function AuthenticationCheck() {
     const navigate = useNavigate();
-
     const dispatch = useDispatch();
     useEffect(() => {
       dispatch(auth()).then((res) => {
         console.log(res);
-
         // 로그인하지 않은 상태
         if (!res.payload.isAuth) {
           if (option) {
@@ -24,11 +23,11 @@ export default function Auth(SpecificComponent, option, adminRoute = null) {
         } else {
           // 로그인 상태
           if (adminRoute && !res.payload.isAdmin) {
-            navigate("/");
+            navigate(`/`);
           } else {
             if (option === false) {
             }
-            navigate("/");
+            navigate(`/`);
           }
         }
       });

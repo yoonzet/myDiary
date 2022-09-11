@@ -21,6 +21,9 @@ const userSchema = mongoose.Schema({
     type: String,
     maxLength: 50,
   },
+  comment: {
+    type: String,
+  },
   role: {
     // role: 관리자와 일반유저를 구분하는 역할
     type: Number,

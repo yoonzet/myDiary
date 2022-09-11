@@ -2,14 +2,12 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Auth from "../../../hoc/auth";
-import Nav from "../Nav/Nav";
-import Calendar from "./Calendar";
-import GuestBook from "./GuestBook";
 import ProfileBox from "./ProfileBox";
+import MainLayout from "../../mainLayout/MainLayout";
 
 function HomePage() {
   const navigate = useNavigate();
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     axios.get("/api/users/auth").then((response) => setUser(response.data));
@@ -26,17 +24,10 @@ function HomePage() {
   };
 
   return (
-    <>
-      <div className="frame_wrap">
-        <div className="frame">
-          <ProfileBox user={user} onClickHandler={onClickHandler} />
-          <div className="right_wrap">
-            <GuestBook />
-          </div>
-        </div>
-        <Nav />
-      </div>
-    </>
+    <MainLayout>
+      <ProfileBox user={user} onClickHandler={onClickHandler} />
+      <div className="right_wrap"></div>
+    </MainLayout>
   );
 }
 

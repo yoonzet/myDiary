@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import user_reducer from "./user";
-import guestBook_reducer from "./guestBook";
+import diary_reducer from "./diary";
 
 const rootReducer = combineReducers({
   user_reducer,
-  guestBook_reducer,
+  diary_reducer,
 });
 
 export default rootReducer;

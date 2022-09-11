@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../../redux/user";
-import { Navigate, useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Auth from "../../../hoc/auth";
 
 function RegisterPage() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [Email, setEmail] = useState("");
   const [Name, setName] = useState("");
   const [Password, setPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
-  const navigate = useNavigate();
 
   const onEmailHandler = (e) => {
     setEmail(e.currentTarget.value);

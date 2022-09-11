@@ -27,7 +27,7 @@ function Nav() {
   return (
     <div className="Nav_wrap">
       <ul className="ul_menu">
-        <NavLink to="/" active-style="true">
+        <NavLink to={`/`} active-style="true">
           HOME
         </NavLink>
         <NavLink to="/diary" active-style="true">

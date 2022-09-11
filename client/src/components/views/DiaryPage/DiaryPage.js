@@ -1,15 +1,15 @@
-import React from "react";
-import Calendar from "../HomePage/Calendar";
-import Nav from "../Nav/Nav";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import MainLayout from "../../mainLayout/MainLayout";
+import Diary from "./Diary";
 
 function DiaryPage() {
   return (
-    <div className="frame_wrap">
-      <div className="frame">
-        <div className="innerFrame"></div>
+    <MainLayout>
+      <div className="innerFrame">
+        <Diary />
       </div>
-      <Nav />
-    </div>
+    </MainLayout>
   );
 }
 

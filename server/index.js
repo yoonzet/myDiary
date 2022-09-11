@@ -4,8 +4,8 @@ const port = 4000;
 const cookieParser = require("cookie-parser");
 const config = require("./config/key");
 const { User } = require("./models/User");
+const { Diary } = require("./models/Diary");
 const { auth } = require("./middleware/auth");
-const { GuestBook } = require("./models/GuestBook");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -16,6 +16,10 @@ mongoose
   .connect(config.mongoURI)
   .then(() => console.log("몽고디비 연결됨"))
   .catch((err) => console.log(err));
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});
 
 // # 회원가입 기능
 // 회원가입할때 필요한 정보들을 클라이언트에서 가져오면 그것들을 데이터베이스에 넣어준다.
@@ -90,16 +94,12 @@ app.get("/api/users/logout", auth, (req, res) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
-
 // ========================================================
-// # 방명록 글쓰기
-app.post("/api/guestBook/post", (req, res) => {
-  const user = new GuestBook(req.body);
+// # 다이어리 post
+app.post("/api/diary/post", (req, res) => {
+  const post = new Diary(req.body);
 
-  user.save((err, text) => {
+  post.save((err, text) => {
     if (err) return res.json({ success: false, err });
     return res.status(200).json({
       success: true,
@@ -107,11 +107,37 @@ app.post("/api/guestBook/post", (req, res) => {
   });
 });
 
-// # 방명록
-app.get("/api/guestBook", auth, (req, res) => {
-  // res.status(200).json({
-  res.status(200).send({
-    _id: req.guestBook._id,
-    text: req.guestBook.text,
-  });
+// # 다이어리 get
+app.get("/api/diary/:id", (req, res, next) => {
+  Diary.find({ commenter: req.params.id })
+    .then((users) => {
+      res.json(users);
+    })
+    .catch((err) => {
+      console.error(err);
+      next(err);
+    });
+});
+
+// # 다이어리 삭제
+app.delete("/api/diary/:id", (req, res, next) => {
+  Diary.deleteOne({ _id: req.params.id })
+    .then((users) => {
+      res.json(users);
+    })
+    .catch((err) => {
+      console.error(err);
+      next(err);
+    });
+});
+// # 다이어리 업데이트
+app.patch("/api/diary/:id", (req, res, next) => {
+  Diary.update({ _id: req.params.id }, { content: req.body.content })
+    .then((users) => {
+      res.json(users);
+    })
+    .catch((err) => {
+      console.error(err);
+      next(err);
+    });
 });

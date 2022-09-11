@@ -27,7 +27,7 @@ function LoginPage() {
     };
     dispatch(loginUser(body)).then((response) => {
       if (response.payload.loginSuccess) {
-        navigate("/");
+        navigate(`/`);
       } else {
         alert("아이디와 비밀번호을 확인해 주세요.");
       }
