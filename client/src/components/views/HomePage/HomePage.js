@@ -4,13 +4,17 @@ import { useNavigate } from "react-router-dom";
 import Auth from "../../../hoc/auth";
 import ProfileBox from "./ProfileBox";
 import MainLayout from "../../mainLayout/MainLayout";
+import { useDispatch } from "react-redux";
+import { auth } from "../../../redux/user";
 
 function HomePage() {
   const navigate = useNavigate();
-  const [user, setUser] = useState({});
+  const dispatch = useDispatch();
+
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/users/auth").then((response) => setUser(response.data));
+    dispatch(auth()).then((res) => setUser(res.payload));
   }, []);
 
   const onClickHandler = () => {

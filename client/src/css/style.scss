@@ -190,12 +190,111 @@
       grid-column-gap: 1rem;
       grid-row-gap: 2.5rem;
       padding: 40px 10%;
+
       li {
         @include width-height(100%, 300px);
         border-radius: 20px;
         padding: 5%;
         box-sizing: border-box;
-        background-color: #ddd;
+      }
+      .add_btn {
+        @include flex-center(column);
+        background-color: #f7995f;
+        font-size: 40px;
+        color: #fff;
+        cursor: pointer;
+        p {
+          transition: 0.2s;
+        }
+        &:hover {
+          p {
+            transform: scale(1.5);
+          }
+        }
+      }
+      .list {
+        background-color: #f1c8a2;
+        overflow: scroll;
+        position: relative;
+
+        .content p {
+          margin: 20px;
+          line-height: 25px;
+          &:first-child {
+            color: #e35c08;
+            font-size: 14px;
+            font-weight: bold;
+          }
+        }
+        .div_delBtn {
+          @include width-height(100%, 300px);
+          position: absolute;
+          top: 0;
+          left: 0;
+          button {
+            all: unset;
+            color: #ea7c3a;
+            font-size: 20px;
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            opacity: 0;
+            cursor: pointer;
+            transition: 0.2s;
+            &:hover {
+              transform: scale(1.1);
+              color: #e35c08;
+            }
+          }
+          &:hover {
+            display: block;
+            button {
+              opacity: 1;
+
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+  // 다이어리 글 추가하기 모달창
+  .modal_bg {
+    @include width-height(100vw, 100vh);
+    background-color: #1118;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    display: block;
+    &.active {
+      display: none;
+    }
+
+    .modal_wrap {
+      @include width-height(500px, 600px);
+      @include absolute-center;
+      background-color: #fff;
+      border-radius: 20px;
+      form {
+        @include width-height(100%, 100%);
+        @include flex-center(column);
+        textarea {
+          @include width-height(80%, 80%);
+          background-color: transparent;
+          border: 0px;
+          outline: none;
+          resize: none;
+        }
+        button {
+          all: unset;
+          background-color: #ea7c3a;
+          padding: 10px 30px;
+          border-radius: 12px;
+          color: #fff;
+          font-weight: bold;
+          cursor: pointer;
+        }
       }
     }
   }
