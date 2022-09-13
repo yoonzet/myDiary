@@ -11,21 +11,23 @@ import moment from "moment";
 import axios from "axios";
 import DiaryList from "./DiaryList";
 import { IoAdd } from "react-icons/io5";
-import CreateListModal from "./CreateListModal";
 
 function DiaryPage() {
   const dispatch = useDispatch();
   const [user, setUser] = useState([]);
   const [contents, setContents] = useState([]);
   const [text, setText] = useState("");
-  const [updateText, setUpdateText] = useState("");
-  const [del, setDel] = useState("");
-  const [show, setShow] = useState(false);
-  const onToggle = () => {
-    console.log(show ? "yes" : "no");
-    setShow(!show);
-  };
+  const [updateText, setUpdateText] = useState({
+    edit: "",
+  });
+  const [editListId, setEditListId] = useState(null);
 
+  const [del, setDel] = useState("");
+
+  const [show, setShow] = useState(false);
+  const onToggle = () => setShow(!show);
+
+  // 데이터 get요청
   useEffect(() => {
     async function userAndContents() {
       const userData = await axios.get("/api/users/auth");
@@ -42,12 +44,6 @@ function DiaryPage() {
     setText(e.target.value);
   };
 
-  const onUpdateChange = (e) => {
-    e.preventDefault();
-
-    setUpdateText(e.target.value);
-  };
-
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -60,6 +56,16 @@ function DiaryPage() {
     setText("");
   };
 
+  const onUpdateChange = (e) => {
+    e.preventDefault();
+    // const fieldName = e.target.getAttribute("name");
+    const fieldValue = e.target.value;
+    // const newFormData = { ...updateText };
+    // newFormData[fieldName] = fieldValue;
+
+    setUpdateText(fieldValue);
+  };
+
   const onUpdateSubmit = (e, _id) => {
     e.preventDefault();
 
@@ -69,15 +75,23 @@ function DiaryPage() {
       createdAt: moment().format("YYYY년 MM월 DD일 ddd"),
     };
     dispatch(updateDiary(body, contents.find((i) => i._id === _id)._id));
+    setDel(del - 1);
+    setEditListId(null);
   };
 
-  const onDelete = (e, _id) => {
-    if (window.confirm("삭제하시겠습니까?") == true) {
+  const onDelete = (_id) => {
+    if (window.confirm("삭제하시겠습니까?") === true) {
       dispatch(deleteDiary(contents.find((i) => i._id === _id)._id));
       setDel(del - 1);
     }
   };
 
+  const onEditClick = (e, item) => {
+    e.preventDefault();
+    setEditListId(item._id);
+    const value = item.content;
+    setUpdateText(value);
+  };
   return (
     <MainLayout>
       <div className="innerFrame">
@@ -89,22 +103,48 @@ function DiaryPage() {
                   <IoAdd />
                 </p>
               </li>
-              <DiaryList
-                contents={contents}
-                onUpdateSubmit={onUpdateSubmit}
-                onUpdateChange={onUpdateChange}
-                updateText={updateText}
-                onDelete={onDelete}
-              />
+              {contents.map((item) => (
+                <DiaryList
+                  contents={contents}
+                  item={item}
+                  onUpdateSubmit={onUpdateSubmit}
+                  onUpdateChange={onUpdateChange}
+                  updateText={updateText}
+                  onDelete={onDelete}
+                  onEditClick={onEditClick}
+                  onToggle={onToggle}
+                />
+              ))}
             </ul>
           </div>
-          <CreateListModal
-            onSubmit={onSubmit}
-            onChange={onChange}
-            text={text}
-            show={show}
-            onToggle={onToggle}
-          />
+
+          {/* 등록 모달 */}
+          <div>
+            <div
+              className={show ? "modal_bg" : "dsp_none"}
+              onClick={onToggle}
+            ></div>
+            <div className={show ? "modal_wrap" : "dsp_none"}>
+              <form onSubmit={onSubmit}>
+                <textarea
+                  onChange={onChange}
+                  value={text}
+                  placeholder="내용을 입력해 주세요"
+                />
+                <div className="btn_wrap">
+                  <button
+                    className={text.length === 0 ? "dsp_none" : "modal_btn"}
+                    onClick={onToggle}
+                  >
+                    등록
+                  </button>
+                  <div className="modal_btn del_btn" onClick={onToggle}>
+                    취소
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </MainLayout>

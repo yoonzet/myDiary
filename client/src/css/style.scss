@@ -121,6 +121,10 @@
   transform: translateY(-20vh);
 }
 
+.dsp_none {
+  display: none;
+}
+
 // ==== 2-1. home탭 ====
 
 //프로필 박스(좌측)
@@ -216,8 +220,16 @@
         background-color: #f1c8a2;
         overflow: scroll;
         position: relative;
-
-        .content p {
+        &:hover {
+          button {
+            opacity: 1;
+            cursor: pointer;
+          }
+        }
+      }
+      .content {
+        font: unset;
+        p {
           margin: 20px;
           line-height: 25px;
           &:first-child {
@@ -226,33 +238,23 @@
             font-weight: bold;
           }
         }
-        .div_delBtn {
-          @include width-height(100%, 300px);
-          position: absolute;
-          top: 0;
-          left: 0;
-          button {
-            all: unset;
-            color: #ea7c3a;
-            font-size: 20px;
-            position: absolute;
-            top: 5%;
-            right: 5%;
-            opacity: 0;
-            cursor: pointer;
-            transition: 0.2s;
-            &:hover {
-              transform: scale(1.1);
-              color: #e35c08;
-            }
-          }
+      }
+      // edit & 휴지통 버튼
+      .out_btn_wrap {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        button {
+          all: unset;
+          color: #ea7c3a;
+          font-size: 20px;
+          opacity: 0;
+          cursor: pointer;
+          transition: 0.2s;
+          margin: 0 7px;
           &:hover {
-            display: block;
-            button {
-              opacity: 1;
-
-              cursor: pointer;
-            }
+            transform: scale(1.1);
+            color: #e35c08;
           }
         }
       }
@@ -265,35 +267,91 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 99;
+    z-index: 88;
     display: block;
-    &.active {
-      display: none;
-    }
+  }
 
-    .modal_wrap {
-      @include width-height(500px, 600px);
-      @include absolute-center;
-      background-color: #fff;
-      border-radius: 20px;
-      form {
-        @include width-height(100%, 100%);
-        @include flex-center(column);
-        textarea {
-          @include width-height(80%, 80%);
-          background-color: transparent;
-          border: 0px;
-          outline: none;
-          resize: none;
-        }
-        button {
+  .modal_wrap {
+    @include width-height(500px, 600px);
+    @include absolute-center;
+    z-index: 99;
+    background-color: #fff;
+    border-radius: 20px;
+    form {
+      @include width-height(100%, 100%);
+      @include flex-center(column);
+      textarea {
+        @include width-height(80%, 70%);
+        background-color: transparent;
+        border: 0px;
+        outline: none;
+        resize: none;
+      }
+      .btn_wrap {
+        @include flex-center(row);
+        margin-top: 20px;
+
+        .modal_btn {
           all: unset;
           background-color: #ea7c3a;
           padding: 10px 30px;
+          margin: 0 20px;
           border-radius: 12px;
           color: #fff;
           font-weight: bold;
           cursor: pointer;
+        }
+        .del_btn {
+          background-color: #f8f2e7;
+          color: #807f7d;
+        }
+      }
+    }
+  }
+  // edit모드
+  .edit_modal_bg {
+    @include width-height(100vw, 100vh);
+    // background-color: #1118;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 88;
+    display: block;
+  }
+  .edit_modal_wrap {
+    @include width-height(100%, 300px);
+    @include absolute-center;
+    z-index: 99;
+    background-color: #f1c8a2;
+    border-radius: 20px;
+    form {
+      @include width-height(100%, 100%);
+      @include flex-center(column);
+      position: relative;
+      textarea {
+        @include width-height(80%, 70%);
+        background-color: transparent;
+        font: unset;
+        border: 0px;
+        outline: none;
+        resize: none;
+        line-height: 25px;
+      }
+      .btn_wrap {
+        button {
+          all: unset;
+          background-color: #ea7c3a;
+          padding: 8px 25px;
+          margin: 0 10px;
+          border-radius: 12px;
+          color: #fff;
+          font-size: 14px;
+          font-weight: bold;
+          cursor: pointer;
+          &:last-child {
+            background-color: #f8f2e7;
+            color: #807f7d;
+          }
         }
       }
     }
