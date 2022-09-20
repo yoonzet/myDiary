@@ -33,8 +33,8 @@ function Nav() {
         <NavLink to="/diary" active-style="true">
           Diary
         </NavLink>
-        <NavLink to="/aaa" active-style="true">
-          aaa
+        <NavLink to="/calendar" active-style="true">
+          Calendar
         </NavLink>
         <NavLink to="/bbb" active-style="true">
           bbb

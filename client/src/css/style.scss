@@ -3,7 +3,8 @@
 // 2. MY WORLD PAGE
 //   2-0: 공통
 //   2-1: home탭
-//   2-1: diary탭
+//   2-2: diary탭
+//   2-3: Planner탭
 
 /* ------ mixin ------ */
 @mixin width-height($width, $height) {
@@ -101,14 +102,14 @@
   .frame {
     @include width-height(100%, 100%);
     @include flex-center(row);
-    padding: 30px;
+    padding: 20px;
     box-sizing: border-box;
     background-color: #f8f2e7;
-    border-radius: 20px;
+    border-radius: 25px;
     box-shadow: 0px 0px 60px rgb(225, 160, 115, 0.5);
     .innerFrame {
       @include width-height(100%, 100%);
-      border-radius: 20px;
+      border-radius: 18px;
       background-color: #fff;
       overflow: scroll;
     }
@@ -131,9 +132,9 @@
 .left_wrap {
   @include width-height(500px, 100%);
   @include flex-center(column);
-  margin-right: 30px;
+  margin-right: 20px;
   background-color: #fff;
-  border-radius: 20px;
+  border-radius: 18px;
   .profile_imgBox {
     @include width-height(220px, 220px);
     img {
@@ -168,7 +169,7 @@
 .right_wrap {
   @include width-height(100%, 100%);
   // @include flex-center(row);
-  border-radius: 20px;
+  border-radius: 18px;
   background-color: #fff;
   .diary-wrap {
     @include width-height(100%, 50%);
@@ -185,7 +186,7 @@
   }
 }
 
-// ==== 2-1. diary탭 ====
+// ==== 2-2. diary탭 ====
 .diary-wrap {
   .contents {
     ul {
@@ -247,11 +248,11 @@
         button {
           all: unset;
           color: #ea7c3a;
-          font-size: 20px;
+          font-size: 17px;
           opacity: 0;
           cursor: pointer;
           transition: 0.2s;
-          margin: 0 7px;
+          margin: 0 12px;
           &:hover {
             transform: scale(1.1);
             color: #e35c08;
@@ -354,6 +355,24 @@
           }
         }
       }
+    }
+  }
+}
+
+// ==== 2-3: Planner탭 ====
+.planner_wrap {
+  @include width-height(100%, 100%);
+  @include flex-center(row);
+  padding: 30px;
+  box-sizing: border-box;
+
+  // 스케쥴 & memo(좌측)
+  .left_wrap {
+    @include width-height(100%, 100%);
+    .schedule_wrap {
+      @include width-height(080%, 100%);
+      border-radius: 20px;
+      background-color: #ddd;
     }
   }
 }

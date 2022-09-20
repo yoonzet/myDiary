@@ -105,6 +105,7 @@ function DiaryPage() {
               </li>
               {contents.map((item) => (
                 <DiaryList
+                  key={item._id}
                   contents={contents}
                   item={item}
                   onUpdateSubmit={onUpdateSubmit}
