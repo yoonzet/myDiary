@@ -1,10 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { deleteCal, getCal, postCal, updateCal } from "../../../redux/calendar";
-import axios from "axios";
+import { deleteCal, postCal, updateCal } from "../../../redux/calendar";
 
 const Div1 = styled.div`
   width: 100%;
@@ -60,27 +58,19 @@ const Button = styled.button`
   }
 `;
 
-function EventModal({ setShowEventModal, selectedEvent, daySelected }) {
+function EventModal({
+  setShowEventModal,
+  selectedEvent,
+  daySelected,
+  contents,
+  user,
+}) {
   const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
   const [description, setDescription] = useState(
     selectedEvent ? selectedEvent.description : ""
   );
-  const [user, setUser] = useState([]);
-  const [contents, setContents] = useState([]);
+
   const dispatch = useDispatch();
-
-  // 데이터 get요청
-  useEffect(() => {
-    async function userAndContents() {
-      const userData = await axios.get("/api/users/auth");
-      const result = await userData.data;
-      setUser(result);
-
-      const contentsData = await dispatch(getCal(result._id));
-      setContents(contentsData.payload);
-    }
-    userAndContents();
-  }, [title, dispatch]);
 
   const handleSubmit = (e, _id) => {
     e.preventDefault();
@@ -89,10 +79,11 @@ function EventModal({ setShowEventModal, selectedEvent, daySelected }) {
       title,
       description,
       day: daySelected.valueOf(),
-      // id: selectedEvent ? selectedEvent.id : Date.now(),
+      id: selectedEvent ? selectedEvent.id : Date.now(),
     };
     if (selectedEvent) {
       dispatch(updateCal(calEvent, contents.find((i) => i._id === _id)._id));
+      // setDel(del - 1);
     } else {
       dispatch(postCal(calEvent));
     }
@@ -110,7 +101,7 @@ function EventModal({ setShowEventModal, selectedEvent, daySelected }) {
             {selectedEvent && (
               <span
                 onClick={() => {
-                  dispatch(deleteCal(selectedEvent));
+                  dispatch(deleteCal(selectedEvent._id));
                   setShowEventModal(false);
                 }}
               >
@@ -152,7 +143,10 @@ function EventModal({ setShowEventModal, selectedEvent, daySelected }) {
           />
         </Div2>
         <Footer>
-          <Button type={"submit"} onClick={handleSubmit}>
+          <Button
+            type={"submit"}
+            onClick={(e) => handleSubmit(e, selectedEvent._id)}
+          >
             save
           </Button>
         </Footer>

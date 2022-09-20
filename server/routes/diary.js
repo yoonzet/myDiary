@@ -41,7 +41,7 @@ router.delete("/:id", (req, res, next) => {
 });
 // # 다이어리 업데이트
 router.patch("/:id", (req, res, next) => {
-  Diary.update({ _id: req.params.id }, { content: req.body.content })
+  Diary.updateOne({ _id: req.params.id }, { content: req.body.content })
     .then((users) => {
       res.json(users);
     })

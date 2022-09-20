@@ -14,6 +14,7 @@ function Month({
   setShowEventModal,
   setDaySelected,
   setSelectedEvent,
+  contents,
 }) {
   return (
     <DivA>
@@ -27,6 +28,7 @@ function Month({
               setShowEventModal={setShowEventModal}
               setDaySelected={setDaySelected}
               setSelectedEvent={setSelectedEvent}
+              contents={contents}
             />
           ))}
         </React.Fragment>

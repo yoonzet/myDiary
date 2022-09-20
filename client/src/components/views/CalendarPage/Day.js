@@ -1,10 +1,7 @@
 import dayjs from "dayjs";
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
-import { getCal } from "../../../redux/calendar";
 
 const Div1 = styled.div`
   border-width: 1px;
@@ -50,28 +47,9 @@ function Day({
   setShowEventModal,
   setDaySelected,
   setSelectedEvent,
+  contents,
 }) {
   const [dayEvents, setDayEvents] = useState([]);
-  const [user, setUser] = useState([]);
-  const [contents, setContents] = useState([]);
-  const dispatch = useDispatch();
-
-  // 데이터 get요청
-  useEffect(() => {
-    async function userAndContents() {
-      const userData = await axios.get("/api/users/auth");
-      const result = await userData.data;
-      setUser(result);
-
-      const contentsData = await dispatch(getCal(result._id));
-      setContents(contentsData.payload);
-    }
-    userAndContents();
-  }, [dispatch]);
-
-  // const saveCalEvents = useSelector(
-  //   (state) => state.planner_reducer.saveCalEvents
-  // );
 
   useEffect(() => {
     const events = contents.filter(

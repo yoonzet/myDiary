@@ -41,7 +41,7 @@ router.delete("/:id", (req, res, next) => {
 });
 // # 업데이트
 router.patch("/:id", (req, res, next) => {
-  Calendar.update({ _id: req.params.id }, { content: req.body.content })
+  Calendar.updateOne({ _id: req.params.id }, { title: req.body.title })
     .then((users) => {
       res.json(users);
     })

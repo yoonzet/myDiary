@@ -6,6 +6,9 @@ import dayjs from "dayjs";
 import EventModal from "./EventModal";
 import CalendarHeader from "./CalendarHeader";
 import Month from "./Month";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { getCal } from "../../../redux/calendar";
 
 function CalendarPage() {
   const [currentMonth, setCurrentMonth] = useState(getMonth());
@@ -16,6 +19,24 @@ function CalendarPage() {
   const [daySelected, setDaySelected] = useState(dayjs());
   const [showEventModal, setShowEventModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [user, setUser] = useState([]);
+  const [contents, setContents] = useState([]);
+  // const [del, setDel] = useState("");
+
+  const dispatch = useDispatch();
+
+  // 데이터 get요청
+  useEffect(() => {
+    async function userAndContents() {
+      const userData = await axios.get("/api/users/auth");
+      const result = await userData.data;
+      setUser(result);
+
+      const contentsData = await dispatch(getCal(result._id));
+      setContents(contentsData.payload);
+    }
+    userAndContents();
+  }, [selectedEvent, dispatch]);
 
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex));
@@ -35,6 +56,8 @@ function CalendarPage() {
             setShowEventModal={setShowEventModal}
             selectedEvent={selectedEvent}
             daySelected={daySelected}
+            contents={contents}
+            user={user}
           />
         )}
 
@@ -44,6 +67,7 @@ function CalendarPage() {
           setShowEventModal={setShowEventModal}
           setDaySelected={setDaySelected}
           setSelectedEvent={setSelectedEvent}
+          contents={contents}
         />
       </>
     </MainLayout>
