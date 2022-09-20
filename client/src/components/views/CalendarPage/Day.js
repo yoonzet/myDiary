@@ -1,45 +1,6 @@
 import dayjs from "dayjs";
 import React, { useEffect } from "react";
 import { useState } from "react";
-import styled from "styled-components";
-
-const Div1 = styled.div`
-  border-width: 1px;
-  border-color: rgb(229 231 235);
-  display: flex;
-  flex-direction: column;
-`;
-const Header = styled.header`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-const P1 = styled.p`
-  font-size: 0.875rem; /* 14px */
-  line-height: 1.25rem; /* 20px */
-  margin-top: 0.25rem; /* 4px */
-`;
-const P2 = styled.p`
-  font-size: 0.875rem; /* 14px */
-  line-height: 1.25rem; /* 20px */
-  margin-top: 0.25rem; /* 4px */
-  padding: 0.25rem; /* 4px */
-  text-align: center;
-`;
-const Div2 = styled.div`
-  flex: 1 1 0%;
-  cursor: pointer;
-`;
-const Div3 = styled.div`
-  padding: 0.25rem;
-  margin: 0.75rem;
-  color: gray;
-  border-radius: 12px;
-  margin-bottom: 0.25rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-`;
 
 function Day({
   day,
@@ -61,38 +22,42 @@ function Day({
   const getCurrentDayClass = () => {
     return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY")
       ? {
-          backgroundColor: "lightBlue",
-          width: "1.75rem",
+          backgroundColor: "orange",
+          width: "1.3rem",
+          // height: "1.7rem",
           borderRadius: "9999px",
+          color: "#fff",
+          fontWeight: "bold",
         }
       : null;
   };
 
   return (
-    <Div1>
-      <Header>
+    <div className="day_wrap">
+      <header className="header">
         {/* 요일표시 */}
-        {rowIdx === 0 && <P1>{day.format("ddd").toUpperCase()}</P1>}
+        {rowIdx === 0 && <p>{day.format("ddd").toUpperCase()}</p>}
         {/* 날짜표시 */}
-        <P2 style={getCurrentDayClass()}>{day.format("DD")}</P2>
-      </Header>
-      <Div2
+        <p style={getCurrentDayClass()}>{day.format("DD")}</p>
+      </header>
+      <div
+        className="day"
         onClick={() => {
           setDaySelected(day);
           setShowEventModal(true);
         }}
       >
         {dayEvents.map((e, i) => (
-          <Div3
+          <div
             key={i}
             onClick={() => setSelectedEvent(e)}
             style={{ backgroundColor: "#eee" }}
           >
             {e.title}
-          </Div3>
+          </div>
         ))}
-      </Div2>
-    </Div1>
+      </div>
+    </div>
   );
 }
 

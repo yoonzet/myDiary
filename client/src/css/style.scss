@@ -4,7 +4,7 @@
 //   2-0: 공통
 //   2-1: home탭
 //   2-2: diary탭
-//   2-3: Planner탭
+//   2-3: calendar탭
 
 /* ------ mixin ------ */
 @mixin width-height($width, $height) {
@@ -359,20 +359,77 @@
   }
 }
 
-// ==== 2-3: Planner탭 ====
-.planner_wrap {
+// ==== 2-3: calendar탭 ====
+.calendar_wrap {
   @include width-height(100%, 100%);
-  @include flex-center(row);
-  padding: 30px;
-  box-sizing: border-box;
-
-  // 스케쥴 & memo(좌측)
-  .left_wrap {
-    @include width-height(100%, 100%);
-    .schedule_wrap {
-      @include width-height(080%, 100%);
-      border-radius: 20px;
-      background-color: #ddd;
+  display: flex;
+  flex-direction: column;
+  .month_wrap {
+    flex: 1 1 0%;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+    margin: 10px;
+    .day_wrap {
+      border: 0.7px solid #9992;
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p {
+          font-size: 0.875rem; /* 14px */
+          line-height: 1.25rem; /* 20px */
+          margin-top: 0.25rem; /* 4px */
+          padding: 0.25rem; /* 4px */
+          text-align: center;
+        }
+      }
+      .day {
+        flex: 1 1 0%;
+        cursor: pointer;
+        div {
+          padding: 0.25rem;
+          margin: 0.75rem;
+          color: gray;
+          border-radius: 12px;
+          margin-bottom: 0.25rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          background-color: "#eee";
+        }
+      }
+    }
+  }
+  .calendarHeader {
+    @include flex-center(row);
+    padding: 1rem 0.5rem;
+    display: flex;
+    align-items: center;
+    .reset_btn {
+      all: unset;
+      border: 1px solid #ddd;
+      border-radius: 0.25rem;
+      padding: 0.5rem 1rem;
+      color: #807f7d;
+      cursor: pointer;
+    }
+    .arrow_btn {
+      cursor: pointer;
+      color: #999;
+      font-size: 30px;
+      line-height: 0px;
+      padding: 0 15px;
+    }
+    h2 {
+      margin-right: 2.5rem; /* 40px */
+      line-height: 1.75rem; /* 28px */
+      color: gray;
+      font-weight: bold;
+      margin-left: 30px;
     }
   }
 }

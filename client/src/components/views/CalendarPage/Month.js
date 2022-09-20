@@ -1,13 +1,5 @@
 import React from "react";
 import Day from "./Day";
-import styled from "styled-components";
-
-const DivA = styled.div`
-  flex: 1 1 0%;
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  grid-template-rows: repeat(5, minmax(0, 1fr));
-`;
 
 function Month({
   currentMonth,
@@ -17,7 +9,7 @@ function Month({
   contents,
 }) {
   return (
-    <DivA>
+    <div className="month_wrap">
       {currentMonth.map((row, i) => (
         <React.Fragment key={i}>
           {row.map((day, idx) => (
@@ -33,7 +25,7 @@ function Month({
           ))}
         </React.Fragment>
       ))}
-    </DivA>
+    </div>
   );
 }
 

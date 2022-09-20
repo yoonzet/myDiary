@@ -13,15 +13,11 @@ import { getCal } from "../../../redux/calendar";
 function CalendarPage() {
   const [currentMonth, setCurrentMonth] = useState(getMonth());
   const monthIndex = useSelector((state) => state.calendar_reducer.monthIndex);
-  // const saveCalEvents = useSelector(
-  //   (state) => state.calendar_reducer.saveCalEvents
-  // );
   const [daySelected, setDaySelected] = useState(dayjs());
   const [showEventModal, setShowEventModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [user, setUser] = useState([]);
   const [contents, setContents] = useState([]);
-  // const [del, setDel] = useState("");
 
   const dispatch = useDispatch();
 
@@ -50,26 +46,28 @@ function CalendarPage() {
 
   return (
     <MainLayout>
-      <>
-        {showEventModal && (
-          <EventModal
-            setShowEventModal={setShowEventModal}
-            selectedEvent={selectedEvent}
-            daySelected={daySelected}
-            contents={contents}
-            user={user}
-          />
-        )}
+      <div className="innerFrame">
+        <div className="calendar_wrap">
+          {showEventModal && (
+            <EventModal
+              setShowEventModal={setShowEventModal}
+              selectedEvent={selectedEvent}
+              daySelected={daySelected}
+              contents={contents}
+              user={user}
+            />
+          )}
 
-        <CalendarHeader />
-        <Month
-          currentMonth={currentMonth}
-          setShowEventModal={setShowEventModal}
-          setDaySelected={setDaySelected}
-          setSelectedEvent={setSelectedEvent}
-          contents={contents}
-        />
-      </>
+          <CalendarHeader />
+          <Month
+            currentMonth={currentMonth}
+            setShowEventModal={setShowEventModal}
+            setDaySelected={setDaySelected}
+            setSelectedEvent={setSelectedEvent}
+            contents={contents}
+          />
+        </div>
+      </div>
     </MainLayout>
   );
 }
