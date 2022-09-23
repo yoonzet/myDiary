@@ -36,7 +36,9 @@ function Day({
     <div className="day_wrap">
       <header className="header">
         {/* 요일표시 */}
-        {rowIdx === 0 && <p>{day.format("ddd").toUpperCase()}</p>}
+        {rowIdx === 0 && (
+          <p className="ddd">{day.format("ddd").toUpperCase()}</p>
+        )}
         {/* 날짜표시 */}
         <p style={getCurrentDayClass()}>{day.format("DD")}</p>
       </header>

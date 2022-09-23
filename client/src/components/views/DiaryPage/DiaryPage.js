@@ -39,7 +39,6 @@ function DiaryPage() {
     }
     userAndContents();
   }, [text, updateText, del, dispatch]);
-  console.log(contents);
 
   const onChange = (e) => {
     setText(e.target.value);

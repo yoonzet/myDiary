@@ -82,17 +82,11 @@ export default function planner_reducer(state = initialState, action) {
       return {
         ...state,
         saveCalEvents: action.payload,
-
-        // saveCalEvents: state.saveCalEvents.map((e) =>
-        //   e.id === action.payload.id ? action.payload : e
-        // ),
       };
     case CALENDAR_DEL:
       return {
         ...state,
         saveCalEvents: action.payload,
-
-        // saveCalEvents: state.value.filter((e) => e.id !== action.payload.id),
       };
 
     default:

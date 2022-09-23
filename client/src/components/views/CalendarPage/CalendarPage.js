@@ -32,7 +32,7 @@ function CalendarPage() {
       setContents(contentsData.payload);
     }
     userAndContents();
-  }, [selectedEvent, dispatch]);
+  }, [showEventModal, selectedEvent, dispatch]);
 
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex));

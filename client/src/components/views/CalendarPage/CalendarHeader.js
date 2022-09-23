@@ -1,6 +1,5 @@
 import dayjs from "dayjs";
-import React, { useState } from "react";
-import styled from "styled-components";
+import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { monthReset, nextMonthIdx, preMonthIdx } from "../../../redux/calendar";
@@ -10,8 +9,6 @@ function CalendarHeader() {
   // const [monthIndex, setMonthIndex] = useState(dayjs().month());
   const monthIndex = useSelector((state) => state.calendar_reducer.monthIndex);
   const dispatch = useDispatch();
-
-  console.log(monthIndex);
 
   const handlePrevMonth = () => {
     dispatch(preMonthIdx());
@@ -31,7 +28,7 @@ function CalendarHeader() {
       <button className="reset_btn" onClick={handleReset}>
         Today
       </button>
-      <div className="arrow_btn" ton2 onClick={handleNextMonth}>
+      <div className="arrow_btn" onClick={handleNextMonth}>
         <IoIosArrowForward />
       </div>
       <h2>{dayjs(new Date(dayjs().year(), monthIndex)).format("MMMM YYYY")}</h2>
