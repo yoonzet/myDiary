@@ -19,7 +19,7 @@ const NavLink = styled(Link)`
     background-color: #f8f2e7;
     opacity: 1;
     width: 130px;
-    color: #e35c08;
+    color: #f7995f;
   }
 `;
 

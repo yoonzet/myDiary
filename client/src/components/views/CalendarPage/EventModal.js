@@ -64,7 +64,7 @@ function EventModal({
 
         <div className="contents">
           {/* 날짜표시 */}
-          <p>{daySelected.format("dddd, MMMM DD")}</p>
+          <p>{daySelected.format("YYYY. MM. DD. (ddd)")}</p>
           {/* 타이틀 인풋 */}
           <input
             type="text"

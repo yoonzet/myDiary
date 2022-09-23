@@ -7,7 +7,7 @@ import {
   updateDiary,
 } from "../../../redux/diary";
 import { useDispatch } from "react-redux";
-import moment from "moment";
+import dayjs from "dayjs";
 import axios from "axios";
 import DiaryList from "./DiaryList";
 import { IoAdd } from "react-icons/io5";
@@ -50,7 +50,7 @@ function DiaryPage() {
     let body = {
       commenter: user._id,
       content: text,
-      createdAt: moment().format("YYYY년 MM월 DD일 ddd"),
+      createdAt: dayjs().format("YYYY년 MM월 DD일 (ddd)"),
     };
     dispatch(postDiary(body));
     setText("");
@@ -72,7 +72,7 @@ function DiaryPage() {
     let body = {
       commenter: user._id,
       content: updateText,
-      createdAt: moment().format("YYYY년 MM월 DD일 ddd"),
+      createdAt: dayjs().format("YYYY년 MM월 DD일 ddd"),
     };
     dispatch(updateDiary(body, contents.find((i) => i._id === _id)._id));
     setDel(del - 1);

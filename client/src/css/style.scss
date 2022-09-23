@@ -94,7 +94,7 @@
   @include flex-center(row);
   min-width: 1500px;
   min-height: 800px;
-  padding: 50px;
+  padding: 50px 120px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -168,20 +168,54 @@
 //컨텐츠박스(우측)
 .right_wrap {
   @include width-height(100%, 100%);
-  // @include flex-center(row);
   border-radius: 18px;
   background-color: #fff;
-  .diary-wrap {
-    @include width-height(100%, 50%);
-    display: flex;
-    justify-content: center;
-    background-color: #eee;
+  // 날씨
+  .weather_wrap {
+    @include width-height(40%, 40%);
+    @include flex-center(column);
+    background-image: url("https://w0.peakpx.com/wallpaper/296/71/HD-wallpaper-skyblue-background-colors-edge-galaxy-gradient-note-plain-simple-sky.jpg");
+    background-size: cover;
+    margin: 5%;
+    border-radius: 18px;
+    color: #fff;
+    p {
+      font-size: 18px;
+    }
+    .main_weather {
+      @include flex-center(row);
+      h1 {
+        font-size: 90px;
+        font-weight: 100;
+        margin: 30px 10px;
+      }
+      img {
+        width: 80px;
+        border-radius: 50%;
+      }
+    }
+    .etc_weather {
+      @include flex-center(row);
+      background-color: #fff2;
+      border-radius: 12px;
+      padding: 20px;
+      box-sizing: border-box;
+      position: relative;
 
-    input {
-      @include width-height(80%, 30px);
-      // all: unset;
-      margin: 20px;
-      background-color: #ddd;
+      &::after {
+        content: "";
+        @include width-height(1px, 60%);
+        background-color: #fff9;
+        position: absolute;
+      }
+      div {
+        margin: 0 30px;
+        @include flex-center(row);
+        .icon {
+          font-size: 40px;
+          margin-right: 20px;
+        }
+      }
     }
   }
 }

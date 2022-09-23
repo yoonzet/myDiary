@@ -6,6 +6,7 @@ import ProfileBox from "./ProfileBox";
 import MainLayout from "../../mainLayout/MainLayout";
 import { useDispatch } from "react-redux";
 import { auth } from "../../../redux/user";
+import Weather from "./Weather";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -30,7 +31,9 @@ function HomePage() {
   return (
     <MainLayout>
       <ProfileBox user={user} onClickHandler={onClickHandler} />
-      <div className="right_wrap"></div>
+      <div className="right_wrap">
+        <Weather />
+      </div>
     </MainLayout>
   );
 }
