@@ -12,7 +12,6 @@ export default function Weather() {
   const [weatherIcon, setWeatherIcon] = useState("");
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
   const today = dayjs().format("MM월 DD일 (ddd) A h:mm");
-  //   const time = dayjs().format("");
 
   function handleGeo(position) {
     const latitude = position.coords.latitude; // 경도
@@ -46,7 +45,6 @@ export default function Weather() {
         setWeatherIcon(
           `http://openweathermap.org/img/wn/${weatherIconData}@2x.png`
         );
-        console.log(data);
       });
   }
 
