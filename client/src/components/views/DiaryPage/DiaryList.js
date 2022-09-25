@@ -53,7 +53,7 @@ function DiaryList({
                 name="edit"
               />
               <div className="btn_wrap">
-                <button onClick={onToggle}>수정</button>
+                <button onClick={onToggle}>완료</button>
                 <button type="reset" onClick={onToggle}>
                   취소
                 </button>

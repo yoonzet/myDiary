@@ -170,50 +170,120 @@
   @include width-height(100%, 100%);
   border-radius: 18px;
   background-color: #fff;
-  // 날씨
-  .weather_wrap {
-    @include width-height(40%, 40%);
-    @include flex-center(column);
-    background-image: url("https://w0.peakpx.com/wallpaper/296/71/HD-wallpaper-skyblue-background-colors-edge-galaxy-gradient-note-plain-simple-sky.jpg");
-    background-size: cover;
-    margin: 5%;
-    border-radius: 18px;
-    color: #fff;
-    p {
-      font-size: 18px;
-    }
-    .main_weather {
-      @include flex-center(row);
-      h1 {
-        font-size: 90px;
-        font-weight: 100;
-        margin: 30px 10px;
+  .top_wrap {
+    @include flex-center(row);
+    padding: 5%;
+    // 날씨
+    .weather_wrap {
+      @include flex-center(column);
+      background-image: url("https://w0.peakpx.com/wallpaper/296/71/HD-wallpaper-skyblue-background-colors-edge-galaxy-gradient-note-plain-simple-sky.jpg");
+      background-size: cover;
+      margin-right: 5%;
+      padding: 30px;
+      border-radius: 18px;
+      color: #fff;
+      p {
+        font-size: 18px;
       }
-      img {
-        width: 80px;
-        border-radius: 50%;
-      }
-    }
-    .etc_weather {
-      @include flex-center(row);
-      background-color: #fff2;
-      border-radius: 12px;
-      padding: 20px;
-      box-sizing: border-box;
-      position: relative;
-
-      &::after {
-        content: "";
-        @include width-height(1px, 60%);
-        background-color: #fff9;
-        position: absolute;
-      }
-      div {
-        margin: 0 30px;
+      .main_weather {
         @include flex-center(row);
-        .icon {
-          font-size: 40px;
-          margin-right: 20px;
+        h1 {
+          font-size: 90px;
+          font-weight: 100;
+          margin: 30px 10px;
+        }
+        img {
+          width: 80px;
+          border-radius: 50%;
+        }
+      }
+      .etc_weather {
+        @include flex-center(row);
+        background-color: #fff2;
+        border-radius: 12px;
+        padding: 20px;
+        box-sizing: border-box;
+        position: relative;
+
+        &::after {
+          content: "";
+          @include width-height(1px, 60%);
+          background-color: #fff9;
+          position: absolute;
+        }
+        div {
+          margin: 0 30px;
+          @include flex-center(row);
+          .icon {
+            font-size: 40px;
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+    //미니캘린더
+    .smallCal_wrap {
+      padding: 35px;
+      border: 1px solid #ddd;
+      border-radius: 18px;
+      position: relative;
+      .hover_after {
+        @include width-height(100%, 100%);
+        @include absolute-center;
+        opacity: 0;
+        transition: 0.3s;
+        cursor: pointer;
+        p {
+          @include absolute-center;
+          color: #fff;
+          font-size: 20px;
+          font-weight: bold;
+          white-space: nowrap;
+          padding: 20px 30px;
+          background: #f7995f;
+          border-radius: 12px;
+          box-shadow: 0 25px 30px -12px rgb(0 0 0 / 0.1);
+        }
+      }
+      &:hover {
+        .hover_after {
+          opacity: 1;
+        }
+        .hover_before {
+          opacity: 0.2;
+        }
+      }
+      .cal_header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        p {
+          color: gray;
+          font-weight: bold;
+        }
+        button {
+          all: unset;
+          cursor: pointer;
+          color: gray;
+          margin-left: 0.5rem; /* 8px */
+          margin-right: 0.5rem; /* 8px */
+        }
+      }
+      .cal_body {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        grid-template-rows: repeat(6, minmax(0, 1fr));
+        text-align: center;
+        span {
+          font-size: 0.875rem; /* 14px */
+          // line-height: 1.25rem; /* 20px */
+          margin: 10px; /* 4px */
+          text-align: center;
+        }
+        button {
+          all: unset;
+          padding: 0.25rem; /* 4px */
+          width: 100%;
         }
       }
     }

@@ -7,6 +7,8 @@ import MainLayout from "../../mainLayout/MainLayout";
 import { useDispatch } from "react-redux";
 import { auth } from "../../../redux/user";
 import Weather from "./Weather";
+import SmallCal from "./SmallCal";
+import News from "./News";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -32,7 +34,11 @@ function HomePage() {
     <MainLayout>
       <ProfileBox user={user} onClickHandler={onClickHandler} />
       <div className="right_wrap">
-        <Weather />
+        <div className="top_wrap">
+          <Weather />
+          <SmallCal />
+        </div>
+        <News />
       </div>
     </MainLayout>
   );

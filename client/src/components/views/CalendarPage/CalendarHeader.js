@@ -6,7 +6,6 @@ import { monthReset, nextMonthIdx, preMonthIdx } from "../../../redux/calendar";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 function CalendarHeader() {
-  // const [monthIndex, setMonthIndex] = useState(dayjs().month());
   const monthIndex = useSelector((state) => state.calendar_reducer.monthIndex);
   const dispatch = useDispatch();
 

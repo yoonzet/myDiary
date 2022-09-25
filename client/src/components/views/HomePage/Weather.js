@@ -67,17 +67,17 @@ export default function Weather() {
         <div className="etc_weather">
           <div>
             <WiRaindrop className="icon" />
-            <p>
+            <>
               <p>습도</p>
               {humidity}%
-            </p>
+            </>
           </div>
           <div>
             <WiStrongWind className="icon" />
-            <p>
+            <>
               <p>풍속</p>
               {speed}m/s
-            </p>
+            </>
           </div>
         </div>
       </div>
