@@ -23,16 +23,17 @@ function EventModal({
     day: daySelected.valueOf(),
   };
 
-  const handleEditSubmit = (e, _id) => {
-    e.preventDefault();
-    dispatch(updateCal(calEvent, contents.find((i) => i._id === _id)._id));
-    setShowEventModal(false);
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!selectedEvent) {
       dispatch(postCal(calEvent));
     }
+    setShowEventModal(false);
+  };
+
+  const handleEditSubmit = (e, _id) => {
+    e.preventDefault();
+    dispatch(updateCal(calEvent, contents.find((i) => i._id === _id)._id));
     setShowEventModal(false);
   };
 

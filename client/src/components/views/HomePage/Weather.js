@@ -6,12 +6,13 @@ import { WiRaindrop, WiStrongWind } from "react-icons/wi";
 
 dayjs.locale("ko");
 export default function Weather() {
+  const [time, setTime] = useState("");
   const [temp, setTemp] = useState("");
   const [humidity, setHumidity] = useState("");
   const [speed, setSpeed] = useState("");
   const [weatherIcon, setWeatherIcon] = useState("");
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
-  const today = dayjs().format("MM월 DD일 (ddd) A h:mm");
+  const today = dayjs().format("MM월 DD일 (ddd)");
 
   function handleGeo(position) {
     const latitude = position.coords.latitude; // 경도
@@ -20,6 +21,9 @@ export default function Weather() {
     getWeather(latitude, longitude);
   }
 
+  setInterval(() => {
+    setTime(dayjs().format("HH:mm:ss"));
+  }, 1000);
   function handleGeoErr(err) {
     alert("위치정보를 찾을 수 없습니다.");
     console.log("geo err! " + err);
@@ -54,28 +58,32 @@ export default function Weather() {
 
   return (
     <div className="weather_wrap">
-      <p>{today}</p>
-
-      <div className="main_weather">
-        <FaLocationArrow />
-        <h1>{temp}°</h1>
-        <img src={weatherIcon} alt="" />
+      <div className="time">
+        <p>{today}</p>
+        <h1>{time}</h1>
       </div>
-      <div>
-        <div className="etc_weather">
-          <div>
-            <WiRaindrop className="icon" />
-            <>
-              <p>습도</p>
-              {humidity}%
-            </>
-          </div>
-          <div>
-            <WiStrongWind className="icon" />
-            <>
-              <p>풍속</p>
-              {speed}m/s
-            </>
+      <div className="weather">
+        <div className="main_weather">
+          <FaLocationArrow />
+          <h1>{temp}°</h1>
+          <img src={weatherIcon} alt="" />
+        </div>
+        <div>
+          <div className="etc_weather">
+            <div>
+              <WiRaindrop className="icon" />
+              <>
+                <p>습도</p>
+                {humidity}%
+              </>
+            </div>
+            <div>
+              <WiStrongWind className="icon" />
+              <>
+                <p>풍속</p>
+                {speed}m/s
+              </>
+            </div>
           </div>
         </div>
       </div>

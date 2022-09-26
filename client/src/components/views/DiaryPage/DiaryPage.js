@@ -58,10 +58,7 @@ function DiaryPage() {
 
   const onUpdateChange = (e) => {
     e.preventDefault();
-    // const fieldName = e.target.getAttribute("name");
     const fieldValue = e.target.value;
-    // const newFormData = { ...updateText };
-    // newFormData[fieldName] = fieldValue;
 
     setUpdateText(fieldValue);
   };

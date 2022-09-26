@@ -36,8 +36,8 @@ function Nav() {
         <NavLink to="/calendar" active-style="true">
           Calendar
         </NavLink>
-        <NavLink to="/bbb" active-style="true">
-          bbb
+        <NavLink to="/planner" active-style="true">
+          planner
         </NavLink>
       </ul>
     </div>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Auth from "../../../hoc/auth";
 import ProfileBox from "./ProfileBox";
 import MainLayout from "../../mainLayout/MainLayout";
@@ -39,6 +39,24 @@ function HomePage() {
           <SmallCal />
         </div>
         <News />
+        <div className="bottom_wrap">
+          <div className="box_diary">
+            <NavLink to="/diary">
+              <div className="txt_wrap">
+                <p>오늘 하루는 어떠셨나요? </p>
+                <p>일상 기록하러 가기</p>
+              </div>
+            </NavLink>
+          </div>
+          <div className="box_planner">
+            <NavLink to="/planner">
+              <div className="txt_wrap">
+                <p>목표달성을 위한 계획! </p>
+                <p>플래너 바로가기</p>
+              </div>
+            </NavLink>
+          </div>
+        </div>
       </div>
     </MainLayout>
   );

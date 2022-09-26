@@ -5,6 +5,7 @@
 //   2-1: home탭
 //   2-2: diary탭
 //   2-3: calendar탭
+//   2-4: planner탭
 
 /* ------ mixin ------ */
 @mixin width-height($width, $height) {
@@ -175,15 +176,25 @@
     padding: 5%;
     // 날씨
     .weather_wrap {
-      @include flex-center(column);
+      @include width-height(100%, 100%);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
       background-image: url("https://w0.peakpx.com/wallpaper/296/71/HD-wallpaper-skyblue-background-colors-edge-galaxy-gradient-note-plain-simple-sky.jpg");
       background-size: cover;
       margin-right: 5%;
-      padding: 30px;
+      padding: 35px;
       border-radius: 18px;
       color: #fff;
-      p {
-        font-size: 18px;
+      .time {
+        text-align: center;
+        p {
+          padding: 10px;
+          font-size: 18px;
+        }
+        h1 {
+          font-size: 40px;
+        }
       }
       .main_weather {
         @include flex-center(row);
@@ -223,7 +234,7 @@
     }
     //미니캘린더
     .smallCal_wrap {
-      padding: 35px;
+      padding: 30px;
       border: 1px solid #ddd;
       border-radius: 18px;
       position: relative;
@@ -291,26 +302,67 @@
 
   //뉴스
   .news_wrap {
-    width: 80%;
-    padding: 15px;
-    margin: 0 auto;
-    border-radius: 12px;
-    background-color: #eee;
-    > span {
-      margin: 0 20px;
-      font-weight: bold;
-    }
-    .title {
-      cursor: pointer;
-      &:hover {
-        text-decoration: underline;
+    padding: 0 5%;
+    div {
+      padding: 15px;
+      margin: 0 auto;
+      border-radius: 12px;
+      background-color: #eee;
+
+      > span {
+        margin: 0 20px;
+        font-weight: bold;
+      }
+      .title {
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      button {
+        all: unset;
+        cursor: pointer;
+        float: right;
       }
     }
-    button {
-      all: unset;
-      cursor: pointer;
-      float: right;
+  }
+}
+
+.bottom_wrap {
+  @include flex-center(row);
+  height: 33%;
+  padding: 5%;
+  div {
+    @include width-height(100%, 100%);
+    border-radius: 18px;
+    position: relative;
+    background-size: cover;
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.01);
     }
+    .txt_wrap {
+      margin: 30px;
+      p {
+        color: #fff;
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 50px;
+        &:last-child {
+          font-size: 18px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  .box_diary {
+    margin-right: 5%;
+    background-image: url("https://images.unsplash.com/photo-1594171330477-5b41410e4b75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2938&q=80");
+    background-position: 50%;
+  }
+  .box_planner {
+    background-image: url("https://images.unsplash.com/photo-1550592704-e397856b4d00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
   }
 }
 
@@ -633,6 +685,111 @@
             opacity: 0.9;
           }
         }
+      }
+    }
+  }
+}
+
+// ==== 2-4: planner탭 ====
+.planner_wrap {
+  @include width-height(100%, 100%);
+  padding: 50px;
+  box-sizing: border-box;
+  .weekly {
+    @include width-height(100%, 40%);
+    .week_wrap {
+      @include width-height(100%, 100%);
+      .add {
+        @include width-height(100%, 100%);
+        @include flex-center(row);
+        z-index: 99;
+        div {
+          @include width-height(100%, 100%);
+          background-color: #eee;
+          border-radius: 12px;
+          margin-right: 12px;
+          overflow: scroll;
+          &:last-child {
+            margin-right: 0px;
+          }
+          h4 {
+            position: absolute;
+            margin-top: 10px;
+            margin-left: 10px;
+          }
+          textarea {
+            all: unset;
+            @include width-height(100%, 100%);
+            border: 0 solid black;
+            padding: 40px 20px 0;
+            box-sizing: border-box;
+            white-space: pre-wrap;
+          }
+        }
+      }
+      .readOnly {
+        @include width-height(100%, 100%);
+        @include flex-center(row);
+        z-index: 99;
+        div {
+          @include width-height(100%, 100%);
+          background-color: #eee;
+          border-radius: 12px;
+          margin-right: 12px;
+          overflow: scroll;
+          &:last-child {
+            margin-right: 0px;
+          }
+          h4 {
+            position: absolute;
+            margin-top: 10px;
+            margin-left: 10px;
+          }
+          p {
+            white-space: pre-wrap;
+            margin: 40px 20px 0;
+          }
+        }
+      }
+      form {
+        @include width-height(100%, 100%);
+
+        .edit {
+          @include width-height(100%, 100%);
+          @include flex-center(row);
+          transform: translateY(-100%);
+
+          div {
+            @include width-height(100%, 100%);
+
+            background-color: #eee;
+            border-radius: 12px;
+            margin-right: 12px;
+            h4 {
+              position: absolute;
+              margin-top: 10px;
+              margin-left: 10px;
+            }
+            textarea {
+              all: unset;
+              @include width-height(100%, 100%);
+              border: 0 solid black;
+              padding: 40px 20px 0;
+              box-sizing: border-box;
+              white-space: pre-wrap;
+            }
+            &:nth-child(7) {
+              margin-right: 0px;
+            }
+          }
+        }
+      }
+      .bgClick {
+        @include width-height(100vw, 100vh);
+        position: fixed;
+        top: 0;
+        left: 0;
+        // background-color: #222;
       }
     }
   }

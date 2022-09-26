@@ -29,13 +29,15 @@ function News() {
 
   return (
     <div className="news_wrap">
-      <span>오늘의 news</span>
-      <a href={randomArticle.url} target="_blank" rel="noopener noreferrer">
-        <span className="title">{randomArticle.title}</span>
-      </a>
-      <button onClick={handleReload}>
-        <IoRefresh />
-      </button>
+      <div>
+        <span>오늘의 news</span>
+        <a href={randomArticle.url} target="_blank" rel="noopener noreferrer">
+          <span className="title">{randomArticle.title}</span>
+        </a>
+        <button onClick={handleReload}>
+          <IoRefresh />
+        </button>
+      </div>
     </div>
   );
 }
