@@ -695,6 +695,52 @@
   @include width-height(100%, 100%);
   padding: 50px;
   box-sizing: border-box;
+  .checkList_wrap {
+    @include width-height(30%, 50%);
+    background-color: #eee;
+    border-radius: 12px;
+    margin-bottom: 50px;
+    padding: 15px;
+    box-sizing: border-box;
+    button {
+      all: unset;
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 100%;
+      color: #888;
+    }
+    form {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 10px;
+      margin: 30px 0;
+      display: flex;
+      justify-content: space-between;
+      input {
+        width: 100%;
+        border: 0;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      input {
+        cursor: pointer;
+      }
+      span {
+        margin-left: 10px;
+        cursor: pointer;
+      }
+    }
+    .list_done {
+      opacity: 0.5;
+      text-decoration: line-through;
+    }
+  }
   .weekly {
     @include width-height(100%, 40%);
     .week_wrap {

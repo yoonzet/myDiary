@@ -1,5 +1,6 @@
 import React from "react";
 import MainLayout from "../../mainLayout/MainLayout";
+import CheckList from "./CheckList";
 import Week from "./Week";
 
 function PlannerPage() {
@@ -7,6 +8,7 @@ function PlannerPage() {
     <MainLayout>
       <div className="innerFrame">
         <div className="planner_wrap">
+          <CheckList />
           <div className="weekly">
             <Week />
           </div>

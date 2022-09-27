@@ -14,10 +14,6 @@ const diarySchema = mongoose.Schema({
   createdAt: {
     type: String,
   },
-  // createdAt: {
-  //   type: Date,
-  //   default: Date.now,
-  // },
 });
 
 const Diary = mongoose.model("Diary", diarySchema);
