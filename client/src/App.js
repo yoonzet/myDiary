@@ -12,12 +12,14 @@ import LoginPage from "./components/views/LoginPage/LoginPage";
 import RegisterPage from "./components/views/RegisterPage/RegisterPage";
 import CalendarPage from "./components/views/CalendarPage/CalendarPage";
 import PlannerPage from "./components/views/PlannerPage/PlannerPage";
+import NewsPage from "./components/views/NewsPage.js/NewsPage";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/news" element={<NewsPage />} />
         <Route exact path="/diary" element={<DiaryPage />} />
         <Route exact path="/calendar" element={<CalendarPage />} />
         <Route exact path="/planner" element={<PlannerPage />} />

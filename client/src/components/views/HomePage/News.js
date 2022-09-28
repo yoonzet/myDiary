@@ -28,7 +28,7 @@ function News() {
   }, []);
 
   return (
-    <div className="news_wrap">
+    <div className="home_news_wrap">
       <div>
         <span>오늘의 news</span>
         <a href={randomArticle.url} target="_blank" rel="noopener noreferrer">

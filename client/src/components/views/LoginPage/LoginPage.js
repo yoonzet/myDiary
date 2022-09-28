@@ -34,6 +34,11 @@ function LoginPage() {
     });
   };
 
+  const onGuestLoginClick = () => {
+    setEmail("guest@myDiary.com");
+    setPassword("112233");
+  };
+
   return (
     <div className="Login_wrap">
       <h1 className="h1_title">MY WORLD</h1>
@@ -61,7 +66,7 @@ function LoginPage() {
         <Link to={"/register"}>
           <p>회원가입</p>
         </Link>
-        <p>게스트 로그인</p>
+        <p onClick={onGuestLoginClick}>게스트 로그인</p>
       </div>
     </div>
   );

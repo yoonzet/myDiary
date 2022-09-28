@@ -30,6 +30,9 @@ function Nav() {
         <NavLink to={`/`} active-style="true">
           HOME
         </NavLink>
+        <NavLink to={`/news`} active-style="true">
+          NEWS
+        </NavLink>
         <NavLink to="/diary" active-style="true">
           Diary
         </NavLink>

@@ -1,8 +1,9 @@
 /* ------ index ------ */
 // 1. LoginPage & RegisterPage
-// 2. MY WORLD PAGE
-//   2-0: 공통
-//   2-1: home탭
+// 2. My Diary
+//   공통style
+//   2-0: home탭
+//   2-1: news탭
 //   2-2: diary탭
 //   2-3: calendar탭
 //   2-4: planner탭
@@ -64,13 +65,10 @@
     @include width-height(300px, 60px);
     @include flex-center(row);
     margin: 50px;
-    background-color: #ef8e54;
+    background-color: #ff7f30;
     border-radius: 14px;
     color: #fff;
     cursor: pointer;
-    &:hover {
-      background-color: #ff7f30;
-    }
   }
 
   .div_p_wrap {
@@ -78,18 +76,19 @@
     justify-content: center;
     align-items: center;
     color: gray;
+    font-weight: bold;
     p {
       margin: 0 20px;
       cursor: pointer;
       &:hover {
-        color: #ef9965;
+        color: #ff7f30;
       }
     }
   }
 }
 
-/* *******   2. MY WORLD PAGE   ******* */
-// ==== 2-0. 공통 ====
+/* *******   2. My Diary    ******* */
+// ==== 공통style ====
 .frame_wrap {
   @include width-height(100vw, 100vh);
   @include flex-center(row);
@@ -127,7 +126,7 @@
   display: none;
 }
 
-// ==== 2-1. home탭 ====
+// ==== 2-0. home탭 ====
 
 //프로필 박스(좌측)
 .left_wrap {
@@ -187,6 +186,8 @@
       border-radius: 18px;
       color: #fff;
       .time {
+        @include width-height(150px, 100%);
+
         text-align: center;
         p {
           padding: 10px;
@@ -300,8 +301,8 @@
     }
   }
 
-  //뉴스
-  .news_wrap {
+  //한줄뉴스
+  .home_news_wrap {
     padding: 0 5%;
     div {
       padding: 15px;
@@ -365,16 +366,58 @@
     background-image: url("https://images.unsplash.com/photo-1550592704-e397856b4d00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
   }
 }
+// ==== 2-1. news탭 ====
+.news_wrap {
+  // @include width-height(100%, 100%);
+  padding: 50px 100px;
+  box-sizing: border-box;
+  ul {
+    .my-masonry-grid {
+      display: flex;
+      width: auto;
+    }
+    .my-masonry-grid_column {
+      padding-left: 30px; /* gutter size */
+      background-clip: padding-box;
+    }
+    .firstList {
+      background: #f7995f;
+      color: #fff;
+      text-align: center;
+      padding: 100px;
+    }
+    li {
+      border-radius: 20px;
+      margin: 5%;
+      border: 1px solid transparent;
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+      &:hover {
+        p {
+          text-decoration: underline;
+        }
+      }
+      img {
+        width: 100%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+      p {
+        margin: 20px;
+      }
+    }
+  }
+}
 
 // ==== 2-2. diary탭 ====
 .diary-wrap {
+  padding: 50px;
+  box-sizing: border-box;
   .contents {
     ul {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       grid-column-gap: 1rem;
       grid-row-gap: 2.5rem;
-      padding: 40px 10%;
 
       li {
         @include width-height(100%, 300px);
@@ -384,10 +427,11 @@
       }
       .add_btn {
         @include flex-center(column);
-        background-color: #f2f2f2;
+        background-color: #fff;
         font-size: 40px;
         color: #e35c08;
         cursor: pointer;
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.1);
         p {
           transition: 0.2s;
         }
@@ -398,9 +442,10 @@
         }
       }
       .list {
-        background-color: #f2f2f2;
+        // background-color: #f2f2f2;
         overflow: scroll;
         position: relative;
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.1);
         &:hover {
           button {
             opacity: 1;
@@ -503,7 +548,7 @@
     @include width-height(100%, 300px);
     @include absolute-center;
     z-index: 99;
-    background-color: #f2f2f2;
+    background-color: #fff;
     border-radius: 20px;
     form {
       @include width-height(100%, 100%);
@@ -521,7 +566,7 @@
       .btn_wrap {
         button {
           all: unset;
-          padding: 8px 25px;
+          // padding: 8px 25px;
           margin: 0 10px;
           border-radius: 12px;
           color: #ff7f30;
@@ -542,6 +587,8 @@
   @include width-height(100%, 100%);
   display: flex;
   flex-direction: column;
+  padding: 50px;
+  box-sizing: border-box;
   .month_wrap {
     flex: 1 1 0%;
     display: grid;
@@ -712,7 +759,8 @@
 
     .checkList_wrap {
       @include width-height(30%, 100%);
-      background-color: #f2f2f2;
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
+      background-color: #fff;
       border-radius: 12px;
       padding: 15px;
       box-sizing: border-box;
@@ -730,10 +778,10 @@
         color: #888;
       }
       form {
-        background-color: #fff;
+        border: 1px solid #ddd;
         border-radius: 8px;
         padding: 10px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         display: flex;
         justify-content: space-between;
         input {
@@ -747,7 +795,7 @@
       li {
         display: flex;
         justify-content: space-between;
-        margin: 10px 0;
+        margin: 15px 0;
         input {
           cursor: pointer;
         }
@@ -763,7 +811,7 @@
     }
     .Dday_wrap {
       @include width-height(30%, 100%);
-      background-color: #f2f2f2;
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
       border-radius: 12px;
       padding: 15px;
       box-sizing: border-box;
@@ -774,7 +822,7 @@
         margin: 15px;
       }
       form {
-        background-color: #fff;
+        border: 1px solid #ddd;
         border-radius: 8px;
         padding: 10px;
         margin-bottom: 15px;
@@ -801,7 +849,7 @@
       }
       li {
         @include width-height(100%, 100%);
-        background-color: #fff;
+        background-color: #f7995f;
         border-radius: 8px;
         padding: 10px;
         box-sizing: border-box;
@@ -818,13 +866,14 @@
           h3 {
             line-height: 30px;
             display: inline;
+            color: #fff;
           }
         }
         .hover {
           display: none;
           justify-content: space-between;
           margin-top: 10px;
-          color: #807f7d;
+          color: #fff;
           // transform: scale(0);
           p {
             font-size: 14px;
@@ -855,7 +904,9 @@
 
         div {
           @include width-height(100%, 100%);
-          background-color: #f2f2f2;
+          box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
+          background-color: #fff;
+
           border-radius: 12px;
           margin-right: 12px;
           overflow: scroll;
@@ -886,7 +937,9 @@
         z-index: 99;
         div {
           @include width-height(100%, 100%);
-          background-color: #f2f2f2;
+          box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
+          background-color: #fff;
+
           border-radius: 12px;
           margin-right: 12px;
           overflow: scroll;
@@ -919,7 +972,9 @@
 
           div {
             @include width-height(100%, 100%);
-            background-color: #f2f2f2;
+            // box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
+            background-color: #fff;
+
             border-radius: 12px;
             margin-right: 12px;
             h4 {
