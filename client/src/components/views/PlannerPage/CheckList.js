@@ -49,7 +49,6 @@ function CheckList() {
     dispatch(deleteCheckList(contents.find((i) => i._id === _id)._id));
   };
 
-  console.log(isCheck);
   const onChecked = (_id) => {
     setIsCheck(!isCheck);
     setFake(fake - 1);
@@ -64,7 +63,7 @@ function CheckList() {
 
   return (
     <div className="checkList_wrap">
-      <h4>CHECK LIST!</h4>
+      <h3>CHECK LIST!</h3>
       <form onSubmit={onSubmit}>
         <input
           type="text"

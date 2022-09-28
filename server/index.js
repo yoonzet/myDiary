@@ -8,6 +8,7 @@ const diaryRouter = require("./routes/diary");
 const calendarRouter = require("./routes/calendar");
 const weeklyRouter = require("./routes/weekly");
 const checkListRouter = require("./routes/checkList");
+const dDayRouter = require("./routes/dDay");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -17,6 +18,7 @@ app.use("/api/diary", diaryRouter);
 app.use("/api/calendar", calendarRouter);
 app.use("/api/weekly", weeklyRouter);
 app.use("/api/checkList", checkListRouter);
+app.use("/api/dDay", dDayRouter);
 
 const mongoose = require("mongoose");
 mongoose

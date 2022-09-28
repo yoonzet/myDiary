@@ -24,13 +24,13 @@ function CalendarHeader() {
       <div className="arrow_btn" onClick={handlePrevMonth}>
         <IoIosArrowBack />
       </div>
-      <button className="reset_btn" onClick={handleReset}>
-        Today
-      </button>
+      <h2>{dayjs(new Date(dayjs().year(), monthIndex)).format("MMMM ")}</h2>
       <div className="arrow_btn" onClick={handleNextMonth}>
         <IoIosArrowForward />
       </div>
-      <h2>{dayjs(new Date(dayjs().year(), monthIndex)).format("MMMM YYYY")}</h2>
+      <button className="reset_btn" onClick={handleReset}>
+        Today
+      </button>
     </div>
   );
 }

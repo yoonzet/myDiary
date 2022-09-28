@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getDiary } from "../../../redux/diary";
 import { getWeekly, postWeekly, updateWeekly } from "../../../redux/weekly";
 import WeekAdd from "./WeekAdd";
 
@@ -91,8 +90,11 @@ function Week() {
       writer: user._id,
       content: textData,
     };
-
-    dispatch(postWeekly(body));
+    if (contents.length === 0) {
+      dispatch(postWeekly(body));
+    } else {
+      dispatch(postWeekly());
+    }
     setShow(!show);
   };
   const onEditSubmit = (e, _id) => {
@@ -142,16 +144,15 @@ function Week() {
       sun: item.content.sun,
     };
 
-    setEditTextData(formValues);
     setShow(!show);
+    setEditTextData(formValues);
   };
-
   return (
     <div className="week_wrap">
-      <h3>Weekly Plan</h3>
+      <h3>WEEKLY PLAN</h3>
 
-      {contents.length !== 1 ? (
-        <WeekAdd onSubmit={onSubmit} onChangeText={onChangeText} show={show} />
+      {contents.length === 0 ? (
+        <WeekAdd onSubmit={onSubmit} onChangeText={onChangeText} />
       ) : null}
 
       {contents.map((item, i) => (
@@ -198,8 +199,11 @@ function Week() {
             {/* <button>수정하기</button> */}
           </div>
 
-          <form onSubmit={(e) => onEditSubmit(e, item._id)}>
-            <div className={!show ? "dsp_none" : "edit"}>
+          <form
+            onSubmit={(e) => onEditSubmit(e, item._id)}
+            className={!show ? "dsp_none" : ""}
+          >
+            <div className={"edit"}>
               <div>
                 <h4>MON</h4>
                 <textarea
