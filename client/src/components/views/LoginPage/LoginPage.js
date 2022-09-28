@@ -41,7 +41,7 @@ function LoginPage() {
 
   return (
     <div className="Login_wrap">
-      <h1 className="h1_title">MY WORLD</h1>
+      <h1 className="h1_title">MY DIARY</h1>
       <form className="form" onSubmit={onSubmit}>
         <input
           className="input"

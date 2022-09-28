@@ -170,9 +170,11 @@
   @include width-height(100%, 100%);
   border-radius: 18px;
   background-color: #fff;
+
   .top_wrap {
     @include flex-center(row);
     padding: 5%;
+
     // 날씨
     .weather_wrap {
       @include width-height(100%, 100%);
@@ -181,10 +183,12 @@
       align-items: center;
       background-image: url("https://w0.peakpx.com/wallpaper/296/71/HD-wallpaper-skyblue-background-colors-edge-galaxy-gradient-note-plain-simple-sky.jpg");
       background-size: cover;
-      margin-right: 5%;
+      // margin-right: 5%;
       padding: 35px;
       border-radius: 18px;
       color: #fff;
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
+
       .time {
         @include width-height(150px, 100%);
 
@@ -304,15 +308,20 @@
   //한줄뉴스
   .home_news_wrap {
     padding: 0 5%;
+
     div {
       padding: 15px;
       margin: 0 auto;
       border-radius: 12px;
       background-color: #f2f2f2;
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
 
-      > span {
+      span {
         margin: 0 20px;
         font-weight: bold;
+      }
+      p {
+        display: inline;
       }
       .title {
         cursor: pointer;
@@ -359,10 +368,12 @@
   }
   .box_diary {
     margin-right: 5%;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
     background-image: url("https://images.unsplash.com/photo-1594171330477-5b41410e4b75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2938&q=80");
     background-position: 50%;
   }
   .box_planner {
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
     background-image: url("https://images.unsplash.com/photo-1550592704-e397856b4d00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
   }
 }

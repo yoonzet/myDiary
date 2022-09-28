@@ -36,7 +36,7 @@ function HomePage() {
       <div className="right_wrap">
         <div className="top_wrap">
           <Weather />
-          <SmallCal />
+          {/* <SmallCal /> */}
         </div>
         <News />
         <div className="bottom_wrap">
