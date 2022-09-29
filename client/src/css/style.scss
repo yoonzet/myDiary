@@ -1,1029 +1,1029 @@
-// /* ------ index ------ */
-// // 1. LoginPage & RegisterPage
-// // 2. My Diary
-// //   공통style
-// //   2-0: home탭
-// //   2-1: news탭
-// //   2-2: diary탭
-// //   2-3: calendar탭
-// //   2-4: planner탭
+/* ------ index ------ */
+// 1. LoginPage & RegisterPage
+// 2. My Diary
+//   공통style
+//   2-0: home탭
+//   2-1: news탭
+//   2-2: diary탭
+//   2-3: calendar탭
+//   2-4: planner탭
 
-// /* ------ mixin ------ */
-// @mixin width-height($width, $height) {
-//   width: $width;
-//   height: $height;
-// }
-// @mixin flex-center($direction) {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: $direction;
-// }
-// @mixin absolute-center {
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-// }
-// // 복붙해서 쓰기
-// // @include width-height( , );
-// // @include flex-center(row 또는 column);
-// // @include absolute-center;
+/* ------ mixin ------ */
+@mixin width-height($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin flex-center($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+// 복붙해서 쓰기
+// @include width-height( , );
+// @include flex-center(row 또는 column);
+// @include absolute-center;
 
-// /* *******   1. LoginPage & RegisterPage   ******* */
+/* *******   1. LoginPage & RegisterPage   ******* */
 
-// .Login_wrap {
-//   // @include width-height(90vw, 90vh);
-//   @include flex-center(column);
-//   @include absolute-center;
-//   padding: 5%;
-//   background-color: #fff;
-//   border-radius: 20px;
-//   box-shadow: 0px 0px 60px #ddd;
+.Login_wrap {
+  // @include width-height(90vw, 90vh);
+  @include flex-center(column);
+  @include absolute-center;
+  padding: 5%;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 60px #ddd;
 
-//   .h1_title {
-//     font-family: "yg-jalnan";
-//     color: #ff7f30;
-//     font-size: 48px;
-//     margin-bottom: 100px;
-//   }
+  .h1_title {
+    font-family: "yg-jalnan";
+    color: #ff7f30;
+    font-size: 48px;
+    margin-bottom: 100px;
+  }
 
-//   .form {
-//     @include flex-center(column);
-//   }
+  .form {
+    @include flex-center(column);
+  }
 
-//   .input {
-//     all: unset;
-//     width: 400px;
-//     border-bottom: #ff7f30 1px solid;
-//     line-height: 40px;
-//     margin: 15px;
-//   }
+  .input {
+    all: unset;
+    width: 400px;
+    border-bottom: #ff7f30 1px solid;
+    line-height: 40px;
+    margin: 15px;
+  }
 
-//   .btn {
-//     all: unset;
-//     @include width-height(300px, 60px);
-//     @include flex-center(row);
-//     margin: 50px;
-//     background-color: #ff7f30;
-//     border-radius: 14px;
-//     color: #fff;
-//     cursor: pointer;
-//   }
+  .btn {
+    all: unset;
+    @include width-height(300px, 60px);
+    @include flex-center(row);
+    margin: 50px;
+    background-color: #ff7f30;
+    border-radius: 14px;
+    color: #fff;
+    cursor: pointer;
+  }
 
-//   .div_p_wrap {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     color: gray;
-//     font-weight: bold;
-//     p {
-//       margin: 0 20px;
-//       cursor: pointer;
-//       &:hover {
-//         color: #ff7f30;
-//       }
-//     }
-//   }
-// }
+  .div_p_wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    font-weight: bold;
+    p {
+      margin: 0 20px;
+      cursor: pointer;
+      &:hover {
+        color: #ff7f30;
+      }
+    }
+  }
+}
 
-// /* *******   2. My Diary    ******* */
-// // ==== 공통style ====
-// .frame_wrap {
-//   @include width-height(100vw, 100vh);
-//   @include flex-center(row);
-//   min-width: 1500px;
-//   min-height: 800px;
-//   padding: 50px 120px;
-//   box-sizing: border-box;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   .frame {
-//     @include width-height(100%, 100%);
-//     @include flex-center(row);
-//     padding: 20px;
-//     box-sizing: border-box;
-//     background-color: #f8f2e7;
-//     border-radius: 25px;
-//     box-shadow: 0 25px 50px -12px #ddd;
-//     .innerFrame {
-//       @include width-height(100%, 100%);
-//       border-radius: 18px;
-//       background-color: #fff;
-//       overflow: scroll;
-//     }
-//   }
-// }
-// // nav bar
-// .Nav_wrap .ul_menu {
-//   display: flex;
-//   flex-direction: column;
-//   transform: translateY(-20vh);
-// }
+/* *******   2. My Diary    ******* */
+// ==== 공통style ====
+.frame_wrap {
+  @include width-height(100vw, 100vh);
+  @include flex-center(row);
+  min-width: 1500px;
+  min-height: 800px;
+  padding: 50px 120px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .frame {
+    @include width-height(100%, 100%);
+    @include flex-center(row);
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f8f2e7;
+    border-radius: 25px;
+    box-shadow: 0 25px 50px -12px #ddd;
+    .innerFrame {
+      @include width-height(100%, 100%);
+      border-radius: 18px;
+      background-color: #fff;
+      overflow: scroll;
+    }
+  }
+}
+// nav bar
+.Nav_wrap .ul_menu {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-20vh);
+}
 
-// .dsp_none {
-//   display: none;
-// }
+.dsp_none {
+  display: none;
+}
 
-// // ==== 2-0. home탭 ====
+// ==== 2-0. home탭 ====
 
-// //프로필 박스(좌측)
-// .left_wrap {
-//   @include width-height(500px, 100%);
-//   @include flex-center(column);
-//   margin-right: 20px;
-//   background-color: #fff;
-//   border-radius: 18px;
-//   .profile_imgBox {
-//     @include width-height(220px, 220px);
-//     img {
-//       border-radius: 50%;
-//       width: 100%;
-//     }
-//   }
-//   .btn_logout {
-//     all: unset;
-//     background-color: #f2f2f2;
-//     border: 1px solid #f2f2f2;
-//     padding: 10px 50px;
-//     border-radius: 20px;
-//     color: gray;
-//     cursor: pointer;
-//     &:hover {
-//       color: #333;
-//       background-color: #f2f2f2;
-//     }
-//   }
-//   ul {
-//     margin: 50px;
-//     li {
-//       margin: 10px;
-//       &:last-child {
-//         color: #888;
-//       }
-//     }
-//   }
-// }
-// //컨텐츠박스(우측)
-// .right_wrap {
-//   @include width-height(100%, 100%);
-//   border-radius: 18px;
-//   background-color: #fff;
+//프로필 박스(좌측)
+.left_wrap {
+  @include width-height(500px, 100%);
+  @include flex-center(column);
+  margin-right: 20px;
+  background-color: #fff;
+  border-radius: 18px;
+  .profile_imgBox {
+    @include width-height(220px, 220px);
+    img {
+      border-radius: 50%;
+      width: 100%;
+    }
+  }
+  .btn_logout {
+    all: unset;
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    padding: 10px 50px;
+    border-radius: 20px;
+    color: gray;
+    cursor: pointer;
+    &:hover {
+      color: #333;
+      background-color: #f2f2f2;
+    }
+  }
+  ul {
+    margin: 50px;
+    li {
+      margin: 10px;
+      &:last-child {
+        color: #888;
+      }
+    }
+  }
+}
+//컨텐츠박스(우측)
+.right_wrap {
+  @include width-height(100%, 100%);
+  border-radius: 18px;
+  background-color: #fff;
 
-//   .top_wrap {
-//     @include flex-center(row);
-//     padding: 5%;
+  .top_wrap {
+    @include flex-center(row);
+    padding: 5%;
 
-//     // 날씨
-//     .weather_wrap {
-//       @include width-height(100%, 100%);
-//       display: flex;
-//       justify-content: space-around;
-//       align-items: center;
-//       background-image: url("https://w0.peakpx.com/wallpaper/296/71/HD-wallpaper-skyblue-background-colors-edge-galaxy-gradient-note-plain-simple-sky.jpg");
-//       background-size: cover;
-//       // margin-right: 5%;
-//       padding: 35px;
-//       border-radius: 18px;
-//       color: #fff;
-//       box-shadow: 0 25px 50px -12px #ddd;
+    // 날씨
+    .weather_wrap {
+      @include width-height(100%, 100%);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-image: url("https://w0.peakpx.com/wallpaper/296/71/HD-wallpaper-skyblue-background-colors-edge-galaxy-gradient-note-plain-simple-sky.jpg");
+      background-size: cover;
+      // margin-right: 5%;
+      padding: 35px;
+      border-radius: 18px;
+      color: #fff;
+      box-shadow: 0 25px 50px -12px #ddd;
 
-//       .time {
-//         @include width-height(150px, 100%);
+      .time {
+        @include width-height(150px, 100%);
 
-//         text-align: center;
-//         p {
-//           padding: 10px;
-//           font-size: 18px;
-//         }
-//         h1 {
-//           font-size: 40px;
-//         }
-//       }
-//       .main_weather {
-//         @include flex-center(row);
-//         h1 {
-//           font-size: 90px;
-//           font-weight: 100;
-//           margin: 30px 10px;
-//         }
-//         img {
-//           width: 80px;
-//           border-radius: 50%;
-//         }
-//       }
-//       .etc_weather {
-//         @include flex-center(row);
-//         background-color: #fff2;
-//         border-radius: 12px;
-//         padding: 20px;
-//         box-sizing: border-box;
-//         position: relative;
+        text-align: center;
+        p {
+          padding: 10px;
+          font-size: 18px;
+        }
+        h1 {
+          font-size: 40px;
+        }
+      }
+      .main_weather {
+        @include flex-center(row);
+        h1 {
+          font-size: 90px;
+          font-weight: 100;
+          margin: 30px 10px;
+        }
+        img {
+          width: 80px;
+          border-radius: 50%;
+        }
+      }
+      .etc_weather {
+        @include flex-center(row);
+        background-color: #fff2;
+        border-radius: 12px;
+        padding: 20px;
+        box-sizing: border-box;
+        position: relative;
 
-//         &::after {
-//           content: "";
-//           @include width-height(1px, 60%);
-//           background-color: #fff9;
-//           position: absolute;
-//         }
-//         div {
-//           margin: 0 30px;
-//           @include flex-center(row);
-//           .icon {
-//             font-size: 40px;
-//             margin-right: 20px;
-//           }
-//         }
-//       }
-//     }
-//     //미니캘린더
-//     .smallCal_wrap {
-//       padding: 30px;
-//       border: 1px solid #ddd;
-//       border-radius: 18px;
-//       position: relative;
-//       .hover_after {
-//         @include width-height(100%, 100%);
-//         @include absolute-center;
-//         opacity: 0;
-//         transition: 0.3s;
-//         cursor: pointer;
-//         p {
-//           @include absolute-center;
-//           color: #fff;
-//           font-size: 20px;
-//           font-weight: bold;
-//           white-space: nowrap;
-//           padding: 20px 30px;
-//           background: #f7995f;
-//           border-radius: 12px;
-//           // box-shadow: 0 25px 30px -12px rgb(0 0 0 / 0.1);
-//         }
-//       }
-//       &:hover {
-//         .hover_after {
-//           opacity: 1;
-//         }
-//         .hover_before {
-//           opacity: 0.2;
-//         }
-//       }
-//       .cal_header {
-//         display: flex;
-//         justify-content: space-between;
-//         margin-bottom: 15px;
-//         p {
-//           color: gray;
-//           font-weight: bold;
-//         }
-//         button {
-//           all: unset;
-//           cursor: pointer;
-//           color: gray;
-//           margin-left: 0.5rem; /* 8px */
-//           margin-right: 0.5rem; /* 8px */
-//         }
-//       }
-//       .cal_body {
-//         display: grid;
-//         grid-template-columns: repeat(7, minmax(0, 1fr));
-//         grid-template-rows: repeat(6, minmax(0, 1fr));
-//         text-align: center;
-//         span {
-//           font-size: 0.875rem; /* 14px */
-//           // line-height: 1.25rem; /* 20px */
-//           margin: 10px; /* 4px */
-//           text-align: center;
-//         }
-//         button {
-//           all: unset;
-//           padding: 0.25rem; /* 4px */
-//           width: 100%;
-//         }
-//       }
-//     }
-//   }
+        &::after {
+          content: "";
+          @include width-height(1px, 60%);
+          background-color: #fff9;
+          position: absolute;
+        }
+        div {
+          margin: 0 30px;
+          @include flex-center(row);
+          .icon {
+            font-size: 40px;
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+    //미니캘린더
+    .smallCal_wrap {
+      padding: 30px;
+      border: 1px solid #ddd;
+      border-radius: 18px;
+      position: relative;
+      .hover_after {
+        @include width-height(100%, 100%);
+        @include absolute-center;
+        opacity: 0;
+        transition: 0.3s;
+        cursor: pointer;
+        p {
+          @include absolute-center;
+          color: #fff;
+          font-size: 20px;
+          font-weight: bold;
+          white-space: nowrap;
+          padding: 20px 30px;
+          background: #f7995f;
+          border-radius: 12px;
+          // box-shadow: 0 25px 30px -12px rgb(0 0 0 / 0.1);
+        }
+      }
+      &:hover {
+        .hover_after {
+          opacity: 1;
+        }
+        .hover_before {
+          opacity: 0.2;
+        }
+      }
+      .cal_header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        p {
+          color: gray;
+          font-weight: bold;
+        }
+        button {
+          all: unset;
+          cursor: pointer;
+          color: gray;
+          margin-left: 0.5rem; /* 8px */
+          margin-right: 0.5rem; /* 8px */
+        }
+      }
+      .cal_body {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        grid-template-rows: repeat(6, minmax(0, 1fr));
+        text-align: center;
+        span {
+          font-size: 0.875rem; /* 14px */
+          // line-height: 1.25rem; /* 20px */
+          margin: 10px; /* 4px */
+          text-align: center;
+        }
+        button {
+          all: unset;
+          padding: 0.25rem; /* 4px */
+          width: 100%;
+        }
+      }
+    }
+  }
 
-//   //한줄뉴스
-//   .home_news_wrap {
-//     padding: 0 5%;
+  //한줄뉴스
+  .home_news_wrap {
+    padding: 0 5%;
 
-//     div {
-//       padding: 15px;
-//       margin: 0 auto;
-//       border-radius: 12px;
-//       background-color: #f2f2f2;
-//       box-shadow: 0 25px 50px -12px #ddd;
+    div {
+      padding: 15px;
+      margin: 0 auto;
+      border-radius: 12px;
+      background-color: #f2f2f2;
+      box-shadow: 0 25px 50px -12px #ddd;
 
-//       span {
-//         margin: 0 20px;
-//         font-weight: bold;
-//       }
-//       p {
-//         display: inline;
-//       }
-//       .title {
-//         cursor: pointer;
-//         &:hover {
-//           text-decoration: underline;
-//         }
-//       }
-//       button {
-//         all: unset;
-//         cursor: pointer;
-//         float: right;
-//       }
-//     }
-//   }
-// }
+      span {
+        margin: 0 20px;
+        font-weight: bold;
+      }
+      p {
+        display: inline;
+      }
+      .title {
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      button {
+        all: unset;
+        cursor: pointer;
+        float: right;
+      }
+    }
+  }
+}
 
-// .bottom_wrap {
-//   @include flex-center(row);
-//   height: 33%;
-//   padding: 5%;
-//   div {
-//     @include width-height(100%, 100%);
-//     border-radius: 18px;
-//     position: relative;
-//     background-size: cover;
-//     transition: 0.3s;
-//     cursor: pointer;
-//     &:hover {
-//       transform: scale(1.01);
-//     }
-//     .txt_wrap {
-//       margin: 30px;
-//       p {
-//         color: #fff;
-//         font-size: 30px;
-//         font-weight: bold;
-//         line-height: 50px;
-//         &:last-child {
-//           font-size: 18px;
-//           font-weight: 400;
-//         }
-//       }
-//     }
-//   }
-//   .box_diary {
-//     margin-right: 5%;
-//     box-shadow: 0 25px 50px -12px #ddd;
-//     background-image: url("https://images.unsplash.com/photo-1594171330477-5b41410e4b75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2938&q=80");
-//     background-position: 50%;
-//   }
-//   .box_planner {
-//     box-shadow: 0 25px 50px -12px #ddd;
-//     background-image: url("https://images.unsplash.com/photo-1550592704-e397856b4d00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
-//   }
-// }
-// // ==== 2-1. news탭 ====
-// .news_wrap {
-//   // @include width-height(100%, 100%);
-//   padding: 50px 100px;
-//   box-sizing: border-box;
-//   ul {
-//     .my-masonry-grid {
-//       display: flex;
-//       width: auto;
-//     }
-//     .my-masonry-grid_column {
-//       padding-left: 30px; /* gutter size */
-//       background-clip: padding-box;
-//     }
-//     .firstList {
-//       background: #f7995f;
-//       color: #fff;
-//       text-align: center;
-//       padding: 100px;
-//     }
-//     li {
-//       border-radius: 20px;
-//       margin: 5%;
-//       border: 1px solid transparent;
-//       box-shadow: 0 25px 50px -12px #ddd;
-//       &:hover {
-//         p {
-//           text-decoration: underline;
-//         }
-//       }
-//       img {
-//         width: 100%;
-//         border-top-left-radius: 20px;
-//         border-top-right-radius: 20px;
-//       }
-//       p {
-//         margin: 20px;
-//       }
-//     }
-//   }
-// }
+.bottom_wrap {
+  @include flex-center(row);
+  height: 33%;
+  padding: 5%;
+  div {
+    @include width-height(100%, 100%);
+    border-radius: 18px;
+    position: relative;
+    background-size: cover;
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.01);
+    }
+    .txt_wrap {
+      margin: 30px;
+      p {
+        color: #fff;
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 50px;
+        &:last-child {
+          font-size: 18px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  .box_diary {
+    margin-right: 5%;
+    box-shadow: 0 25px 50px -12px #ddd;
+    background-image: url("https://images.unsplash.com/photo-1594171330477-5b41410e4b75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2938&q=80");
+    background-position: 50%;
+  }
+  .box_planner {
+    box-shadow: 0 25px 50px -12px #ddd;
+    background-image: url("https://images.unsplash.com/photo-1550592704-e397856b4d00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
+  }
+}
+// ==== 2-1. news탭 ====
+.news_wrap {
+  // @include width-height(100%, 100%);
+  padding: 50px 100px;
+  box-sizing: border-box;
+  ul {
+    .my-masonry-grid {
+      display: flex;
+      width: auto;
+    }
+    .my-masonry-grid_column {
+      padding-left: 30px; /* gutter size */
+      background-clip: padding-box;
+    }
+    .firstList {
+      background: #f7995f;
+      color: #fff;
+      text-align: center;
+      padding: 100px;
+    }
+    li {
+      border-radius: 20px;
+      margin: 5%;
+      border: 1px solid transparent;
+      box-shadow: 0 25px 50px -12px #ddd;
+      &:hover {
+        p {
+          text-decoration: underline;
+        }
+      }
+      img {
+        width: 100%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+      p {
+        margin: 20px;
+      }
+    }
+  }
+}
 
-// // ==== 2-2. diary탭 ====
-// .diary-wrap {
-//   padding: 50px;
-//   box-sizing: border-box;
-//   .contents {
-//     ul {
-//       display: grid;
-//       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-//       grid-column-gap: 1rem;
-//       grid-row-gap: 2.5rem;
+// ==== 2-2. diary탭 ====
+.diary-wrap {
+  padding: 50px;
+  box-sizing: border-box;
+  .contents {
+    ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-column-gap: 1rem;
+      grid-row-gap: 2.5rem;
 
-//       li {
-//         @include width-height(100%, 300px);
-//         border-radius: 20px;
-//         padding: 5%;
-//         box-sizing: border-box;
-//       }
-//       .add_btn {
-//         @include flex-center(column);
-//         background-color: #fff;
-//         font-size: 40px;
-//         color: #e35c08;
-//         cursor: pointer;
-//         border: 1px solid #eee;
-//         box-shadow: 0 25px 50px -12px #eee;
-//         p {
-//           transition: 0.2s;
-//         }
-//         &:hover {
-//           p {
-//             transform: scale(1.5);
-//           }
-//         }
-//       }
-//       .list {
-//         // background-color: #f2f2f2;
-//         overflow: scroll;
-//         position: relative;
-//         border: 1px solid #eee;
-//         box-shadow: 0 25px 50px -12px #eee;
-//         &:hover {
-//           button {
-//             opacity: 1;
-//             cursor: pointer;
-//           }
-//         }
-//       }
-//       .content {
-//         font: unset;
-//         p {
-//           margin: 20px;
-//           line-height: 25px;
-//           &:first-child {
-//             color: #f5660e;
-//             font-size: 14px;
-//             font-weight: bold;
-//           }
-//         }
-//       }
-//       // edit & 휴지통 버튼
-//       .out_btn_wrap {
-//         position: absolute;
-//         top: 10%;
-//         right: 5%;
-//         button {
-//           all: unset;
-//           color: #ff7f30;
-//           font-size: 17px;
-//           opacity: 0;
-//           cursor: pointer;
-//           transition: 0.2s;
-//           margin: 0 12px;
-//           &:hover {
-//             transform: scale(1.1);
-//             color: #e35c08;
-//           }
-//         }
-//       }
-//     }
-//   }
-//   // 다이어리 글 추가하기 모달창
-//   .modal_bg {
-//     @include width-height(100vw, 100vh);
-//     background-color: #1118;
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     z-index: 88;
-//     display: block;
-//   }
+      li {
+        @include width-height(100%, 300px);
+        border-radius: 20px;
+        padding: 5%;
+        box-sizing: border-box;
+      }
+      .add_btn {
+        @include flex-center(column);
+        background-color: #fff;
+        font-size: 40px;
+        color: #e35c08;
+        cursor: pointer;
+        border: 1px solid #eee;
+        box-shadow: 0 25px 50px -12px #eee;
+        p {
+          transition: 0.2s;
+        }
+        &:hover {
+          p {
+            transform: scale(1.5);
+          }
+        }
+      }
+      .list {
+        // background-color: #f2f2f2;
+        overflow: scroll;
+        position: relative;
+        border: 1px solid #eee;
+        box-shadow: 0 25px 50px -12px #eee;
+        &:hover {
+          button {
+            opacity: 1;
+            cursor: pointer;
+          }
+        }
+      }
+      .content {
+        font: unset;
+        p {
+          margin: 20px;
+          line-height: 25px;
+          &:first-child {
+            color: #f5660e;
+            font-size: 14px;
+            font-weight: bold;
+          }
+        }
+      }
+      // edit & 휴지통 버튼
+      .out_btn_wrap {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        button {
+          all: unset;
+          color: #ff7f30;
+          font-size: 17px;
+          opacity: 0;
+          cursor: pointer;
+          transition: 0.2s;
+          margin: 0 12px;
+          &:hover {
+            transform: scale(1.1);
+            color: #e35c08;
+          }
+        }
+      }
+    }
+  }
+  // 다이어리 글 추가하기 모달창
+  .modal_bg {
+    @include width-height(100vw, 100vh);
+    background-color: #1118;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 88;
+    display: block;
+  }
 
-//   .modal_wrap {
-//     @include width-height(500px, 600px);
-//     @include absolute-center;
-//     z-index: 99;
-//     background-color: #fff;
-//     border-radius: 20px;
-//     form {
-//       @include width-height(100%, 100%);
-//       @include flex-center(column);
-//       textarea {
-//         @include width-height(80%, 70%);
-//         background-color: transparent;
-//         border: 0px;
-//         outline: none;
-//         resize: none;
-//       }
-//       .btn_wrap {
-//         @include flex-center(row);
-//         margin-top: 20px;
+  .modal_wrap {
+    @include width-height(500px, 600px);
+    @include absolute-center;
+    z-index: 99;
+    background-color: #fff;
+    border-radius: 20px;
+    form {
+      @include width-height(100%, 100%);
+      @include flex-center(column);
+      textarea {
+        @include width-height(80%, 70%);
+        background-color: transparent;
+        border: 0px;
+        outline: none;
+        resize: none;
+      }
+      .btn_wrap {
+        @include flex-center(row);
+        margin-top: 20px;
 
-//         .modal_btn {
-//           all: unset;
-//           background-color: #ff7f30;
-//           padding: 10px 30px;
-//           margin: 0 20px;
-//           border-radius: 12px;
-//           color: #fff;
-//           font-weight: bold;
-//           cursor: pointer;
-//         }
-//         .del_btn {
-//           background-color: #f8f2e7;
-//           color: #807f7d;
-//         }
-//       }
-//     }
-//   }
-//   // edit모드
-//   .edit_modal_bg {
-//     @include width-height(100vw, 100vh);
-//     // background-color: #1118;
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     z-index: 88;
-//     display: block;
-//   }
-//   .edit_modal_wrap {
-//     @include width-height(100%, 300px);
-//     @include absolute-center;
-//     z-index: 99;
-//     background-color: #fff;
-//     border-radius: 20px;
-//     form {
-//       @include width-height(100%, 100%);
-//       @include flex-center(column);
-//       position: relative;
-//       textarea {
-//         @include width-height(80%, 70%);
-//         background-color: transparent;
-//         font: unset;
-//         border: 0px;
-//         outline: none;
-//         resize: none;
-//         line-height: 25px;
-//       }
-//       .btn_wrap {
-//         button {
-//           all: unset;
-//           // padding: 8px 25px;
-//           margin: 0 10px;
-//           border-radius: 12px;
-//           color: #ff7f30;
-//           font-size: 14px;
-//           font-weight: bold;
-//           cursor: pointer;
-//           &:last-child {
-//             color: #807f7d;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+        .modal_btn {
+          all: unset;
+          background-color: #ff7f30;
+          padding: 10px 30px;
+          margin: 0 20px;
+          border-radius: 12px;
+          color: #fff;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        .del_btn {
+          background-color: #f8f2e7;
+          color: #807f7d;
+        }
+      }
+    }
+  }
+  // edit모드
+  .edit_modal_bg {
+    @include width-height(100vw, 100vh);
+    // background-color: #1118;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 88;
+    display: block;
+  }
+  .edit_modal_wrap {
+    @include width-height(100%, 300px);
+    @include absolute-center;
+    z-index: 99;
+    background-color: #fff;
+    border-radius: 20px;
+    form {
+      @include width-height(100%, 100%);
+      @include flex-center(column);
+      position: relative;
+      textarea {
+        @include width-height(80%, 70%);
+        background-color: transparent;
+        font: unset;
+        border: 0px;
+        outline: none;
+        resize: none;
+        line-height: 25px;
+      }
+      .btn_wrap {
+        button {
+          all: unset;
+          // padding: 8px 25px;
+          margin: 0 10px;
+          border-radius: 12px;
+          color: #ff7f30;
+          font-size: 14px;
+          font-weight: bold;
+          cursor: pointer;
+          &:last-child {
+            color: #807f7d;
+          }
+        }
+      }
+    }
+  }
+}
 
-// // ==== 2-3: calendar탭 ====
-// .calendar_wrap {
-//   @include width-height(100%, 100%);
-//   display: flex;
-//   flex-direction: column;
-//   padding: 50px;
-//   box-sizing: border-box;
-//   .month_wrap {
-//     flex: 1 1 0%;
-//     display: grid;
-//     grid-template-columns: repeat(7, minmax(0, 1fr));
-//     grid-template-rows: repeat(5, minmax(0, 1fr));
-//     margin: 10px;
-//     .day_wrap {
-//       border: 0.7px solid #9992;
-//       display: flex;
-//       flex-direction: column;
-//       border-radius: 8px;
-//       .header {
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-//         p {
-//           font-size: 0.875rem; /* 14px */
-//           line-height: 1.25rem; /* 20px */
-//           margin-top: 0.25rem; /* 4px */
-//           padding: 0.25rem; /* 4px */
-//           text-align: center;
-//         }
-//         .ddd {
-//           font-weight: bold;
-//           color: #ff7f30;
-//         }
-//       }
-//       .day {
-//         flex: 1 1 0%;
-//         cursor: pointer;
-//         div {
-//           padding: 0.25rem;
-//           margin: 0.75rem;
-//           color: gray;
-//           border-radius: 12px;
-//           margin-bottom: 0.25rem;
-//           overflow: hidden;
-//           text-overflow: ellipsis;
-//           white-space: nowrap;
-//           background-color: "#f2f2f2";
-//         }
-//       }
-//     }
-//   }
-//   .calendarHeader {
-//     @include flex-center(row);
-//     padding: 2rem 0.5rem;
-//     display: flex;
-//     align-items: center;
-//     .reset_btn {
-//       all: unset;
-//       border: 1px solid #ddd;
-//       border-radius: 0.25rem;
-//       padding: 0.5rem 1rem;
-//       color: #807f7d;
-//       cursor: pointer;
-//     }
-//     .arrow_btn {
-//       cursor: pointer;
-//       color: #999;
-//       font-size: 30px;
-//       line-height: 0px;
-//       padding: 0 15px;
-//     }
-//     h2 {
-//       margin: 0 2.5rem; /* 40px */
-//       line-height: 1.75rem; /* 28px */
-//       color: #f5660e;
-//       font-weight: bold;
-//     }
-//   }
-//   .eventModal_wrap {
-//     width: 100%;
-//     height: 100vh;
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     form {
-//       background-color: #fff;
-//       border-radius: 15px;
-//       box-shadow: 0 25px 50px -12px #ddd;
-//       width: 400px;
-//       header {
-//         background-color: #ddd;
-//         padding: 1rem 0.25rem;
-//         border-top-left-radius: 15px;
-//         border-top-right-radius: 15px;
-//         display: flex;
-//         justify-content: right;
-//         align-items: center;
-//         button {
-//           all: unset;
-//           margin: 0 5px;
-//           color: #807f7d;
-//           cursor: pointer;
-//           &:hover {
-//             color: #333;
-//           }
-//         }
-//       }
-//       .contents {
-//         padding: 18px;
-//         p {
-//           color: #807f7d;
-//           font-weight: bold;
-//           margin-bottom: 20px;
-//         }
+// ==== 2-3: calendar탭 ====
+.calendar_wrap {
+  @include width-height(100%, 100%);
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  box-sizing: border-box;
+  .month_wrap {
+    flex: 1 1 0%;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+    margin: 10px;
+    .day_wrap {
+      border: 0.7px solid #9992;
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p {
+          font-size: 0.875rem; /* 14px */
+          line-height: 1.25rem; /* 20px */
+          margin-top: 0.25rem; /* 4px */
+          padding: 0.25rem; /* 4px */
+          text-align: center;
+        }
+        .ddd {
+          font-weight: bold;
+          color: #ff7f30;
+        }
+      }
+      .day {
+        flex: 1 1 0%;
+        cursor: pointer;
+        div {
+          padding: 0.25rem;
+          margin: 0.75rem;
+          color: gray;
+          border-radius: 12px;
+          margin-bottom: 0.25rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          background-color: "#f2f2f2";
+        }
+      }
+    }
+  }
+  .calendarHeader {
+    @include flex-center(row);
+    padding: 2rem 0.5rem;
+    display: flex;
+    align-items: center;
+    .reset_btn {
+      all: unset;
+      border: 1px solid #ddd;
+      border-radius: 0.25rem;
+      padding: 0.5rem 1rem;
+      color: #807f7d;
+      cursor: pointer;
+    }
+    .arrow_btn {
+      cursor: pointer;
+      color: #999;
+      font-size: 30px;
+      line-height: 0px;
+      padding: 0 15px;
+    }
+    h2 {
+      margin: 0 2.5rem; /* 40px */
+      line-height: 1.75rem; /* 28px */
+      color: #f5660e;
+      font-weight: bold;
+    }
+  }
+  .eventModal_wrap {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    form {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 25px 50px -12px #ddd;
+      width: 400px;
+      header {
+        background-color: #ddd;
+        padding: 1rem 0.25rem;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        button {
+          all: unset;
+          margin: 0 5px;
+          color: #807f7d;
+          cursor: pointer;
+          &:hover {
+            color: #333;
+          }
+        }
+      }
+      .contents {
+        padding: 18px;
+        p {
+          color: #807f7d;
+          font-weight: bold;
+          margin-bottom: 20px;
+        }
 
-//         input {
-//           width: 100%;
-//           padding-top: 0.75rem; /* 12px */
-//           padding-bottom: 0.5rem; /* 8px */
-//           border: 0;
-//           border-bottom: 1px solid #ddd;
-//           color: #333;
-//           font-size: 18px;
-//           &:focus {
-//             outline: none;
-//           }
-//         }
-//       }
-//       footer {
-//         display: flex;
-//         justify-content: end;
-//         padding: 1rem;
-//         margin-top: 1.25rem;
-//         button {
-//           all: unset;
-//           background-color: orange;
-//           padding: 0.5rem 1.5rem;
-//           border-radius: 12px;
-//           color: white;
-//           cursor: pointer;
-//           &:hover {
-//             opacity: 0.9;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+        input {
+          width: 100%;
+          padding-top: 0.75rem; /* 12px */
+          padding-bottom: 0.5rem; /* 8px */
+          border: 0;
+          border-bottom: 1px solid #ddd;
+          color: #333;
+          font-size: 18px;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      footer {
+        display: flex;
+        justify-content: end;
+        padding: 1rem;
+        margin-top: 1.25rem;
+        button {
+          all: unset;
+          background-color: orange;
+          padding: 0.5rem 1.5rem;
+          border-radius: 12px;
+          color: white;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+  }
+}
 
-// // ==== 2-4: planner탭 ====
-// .planner_wrap {
-//   @include width-height(100%, 100%);
-//   padding: 50px;
-//   box-sizing: border-box;
-//   .top_wrap {
-//     @include width-height(100%, 50%);
-//     @include flex-center(row);
-//     margin-bottom: 50px;
-//     .title {
-//       @include width-height(35%, 100%);
-//       @include flex-center(column);
-//       h1 {
-//         color: #f5660e;
-//         font-size: 40px;
-//         margin-bottom: 30px;
-//       }
-//       p {
-//         color: #807f7d;
-//         font-weight: bold;
-//       }
-//     }
+// ==== 2-4: planner탭 ====
+.planner_wrap {
+  @include width-height(100%, 100%);
+  padding: 50px;
+  box-sizing: border-box;
+  .top_wrap {
+    @include width-height(100%, 50%);
+    @include flex-center(row);
+    margin-bottom: 50px;
+    .title {
+      @include width-height(35%, 100%);
+      @include flex-center(column);
+      h1 {
+        color: #f5660e;
+        font-size: 40px;
+        margin-bottom: 30px;
+      }
+      p {
+        color: #807f7d;
+        font-weight: bold;
+      }
+    }
 
-//     .checkList_wrap {
-//       @include width-height(30%, 100%);
-//       border: 1px solid #eee;
-//       box-shadow: 0 25px 50px -12px #ddd;
-//       background-color: #fff;
-//       border-radius: 12px;
-//       padding: 15px;
-//       box-sizing: border-box;
-//       margin-right: 100px;
-//       h3 {
-//         color: #ff7f30;
-//         text-align: center;
-//         margin: 15px;
-//       }
-//       button {
-//         all: unset;
-//         cursor: pointer;
-//         font-size: 20px;
-//         line-height: 100%;
-//         color: #888;
-//       }
-//       form {
-//         border: 1px solid #ddd;
-//         border-radius: 8px;
-//         padding: 10px;
-//         margin-bottom: 20px;
-//         display: flex;
-//         justify-content: space-between;
-//         input {
-//           width: 100%;
-//           border: 0;
-//           &:focus {
-//             outline: none;
-//           }
-//         }
-//       }
-//       li {
-//         display: flex;
-//         justify-content: space-between;
-//         margin: 15px 0;
-//         input {
-//           cursor: pointer;
-//         }
-//         span {
-//           margin-left: 10px;
-//           cursor: pointer;
-//         }
-//       }
-//       .list_done {
-//         opacity: 0.5;
-//         text-decoration: line-through;
-//       }
-//     }
-//     .Dday_wrap {
-//       @include width-height(30%, 100%);
-//       border: 1px solid #eee;
-//       box-shadow: 0 25px 50px -12px #ddd;
-//       border-radius: 12px;
-//       padding: 15px;
-//       box-sizing: border-box;
-//       overflow: auto;
-//       h3 {
-//         color: #ff7f30;
-//         text-align: center;
-//         margin: 15px;
-//       }
-//       form {
-//         border: 1px solid #ddd;
-//         border-radius: 8px;
-//         padding: 10px;
-//         margin-bottom: 15px;
-//         display: flex;
-//         justify-content: space-between;
-//         input {
-//           width: 100%;
-//           border: 0;
-//           &:focus {
-//             outline: none;
-//           }
-//         }
-//         input[type="date"]::-webkit-datetime-edit-fields-wrapper {
-//           display: none;
-//         }
-//         button {
-//           all: unset;
-//           cursor: pointer;
-//           font-size: 20px;
-//           line-height: 100%;
-//           color: #888;
-//           margin-left: 10px;
-//         }
-//       }
-//       li {
-//         @include width-height(100%, 100%);
-//         background-color: #f7995f;
-//         border-radius: 8px;
-//         padding: 10px;
-//         box-sizing: border-box;
-//         margin-bottom: 10px;
-//         &:hover {
-//           .hover {
-//             display: flex;
-//             // transform: scale(1);
-//           }
-//         }
-//         .mainList {
-//           display: flex;
-//           justify-content: space-between;
-//           h3 {
-//             line-height: 30px;
-//             display: inline;
-//             color: #fff;
-//           }
-//         }
-//         .hover {
-//           display: none;
-//           justify-content: space-between;
-//           margin-top: 10px;
-//           color: #fff;
-//           // transform: scale(0);
-//           p {
-//             font-size: 14px;
-//           }
-//           button {
-//             all: unset;
-//             cursor: pointer;
-//           }
-//         }
-//       }
-//     }
-//   }
-//   .weekly {
-//     @include width-height(100%, 40%);
+    .checkList_wrap {
+      @include width-height(30%, 100%);
+      border: 1px solid #eee;
+      box-shadow: 0 25px 50px -12px #ddd;
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      box-sizing: border-box;
+      margin-right: 100px;
+      h3 {
+        color: #ff7f30;
+        text-align: center;
+        margin: 15px;
+      }
+      button {
+        all: unset;
+        cursor: pointer;
+        font-size: 20px;
+        line-height: 100%;
+        color: #888;
+      }
+      form {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        input {
+          width: 100%;
+          border: 0;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      li {
+        display: flex;
+        justify-content: space-between;
+        margin: 15px 0;
+        input {
+          cursor: pointer;
+        }
+        span {
+          margin-left: 10px;
+          cursor: pointer;
+        }
+      }
+      .list_done {
+        opacity: 0.5;
+        text-decoration: line-through;
+      }
+    }
+    .Dday_wrap {
+      @include width-height(30%, 100%);
+      border: 1px solid #eee;
+      box-shadow: 0 25px 50px -12px #ddd;
+      border-radius: 12px;
+      padding: 15px;
+      box-sizing: border-box;
+      overflow: auto;
+      h3 {
+        color: #ff7f30;
+        text-align: center;
+        margin: 15px;
+      }
+      form {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        input {
+          width: 100%;
+          border: 0;
+          &:focus {
+            outline: none;
+          }
+        }
+        input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+          display: none;
+        }
+        button {
+          all: unset;
+          cursor: pointer;
+          font-size: 20px;
+          line-height: 100%;
+          color: #888;
+          margin-left: 10px;
+        }
+      }
+      li {
+        @include width-height(100%, 100%);
+        background-color: #f7995f;
+        border-radius: 8px;
+        padding: 10px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        &:hover {
+          .hover {
+            display: flex;
+            // transform: scale(1);
+          }
+        }
+        .mainList {
+          display: flex;
+          justify-content: space-between;
+          h3 {
+            line-height: 30px;
+            display: inline;
+            color: #fff;
+          }
+        }
+        .hover {
+          display: none;
+          justify-content: space-between;
+          margin-top: 10px;
+          color: #fff;
+          // transform: scale(0);
+          p {
+            font-size: 14px;
+          }
+          button {
+            all: unset;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  .weekly {
+    @include width-height(100%, 40%);
 
-//     .week_wrap {
-//       @include width-height(100%, 100%);
-//       h3 {
-//         margin-bottom: 20px;
-//         color: #ff7f30;
-//       }
+    .week_wrap {
+      @include width-height(100%, 100%);
+      h3 {
+        margin-bottom: 20px;
+        color: #ff7f30;
+      }
 
-//       .add {
-//         @include width-height(100%, 100%);
-//         @include flex-center(row);
-//         transform: translateY(0);
-//         z-index: 99;
+      .add {
+        @include width-height(100%, 100%);
+        @include flex-center(row);
+        transform: translateY(0);
+        z-index: 99;
 
-//         div {
-//           @include width-height(100%, 100%);
-//           border: 1px solid #eee;
-//           box-shadow: 0 25px 50px -12px #ddd;
-//           background-color: #fff;
+        div {
+          @include width-height(100%, 100%);
+          border: 1px solid #eee;
+          box-shadow: 0 25px 50px -12px #ddd;
+          background-color: #fff;
 
-//           border-radius: 12px;
-//           margin-right: 12px;
-//           overflow: scroll;
-//           &:last-child {
-//             margin-right: 0px;
-//             h4 {
-//               color: #ef8e54;
-//             }
-//           }
-//           h4 {
-//             margin-top: 10px;
-//             margin-left: 10px;
-//             color: #999;
-//           }
-//           textarea {
-//             all: unset;
-//             @include width-height(100%, 100%);
-//             border: 0 solid black;
-//             padding: 20px 20px 0;
-//             box-sizing: border-box;
-//             white-space: pre-wrap;
-//           }
-//         }
-//       }
-//       .readOnly {
-//         @include width-height(100%, 100%);
-//         @include flex-center(row);
-//         z-index: 99;
-//         div {
-//           @include width-height(100%, 100%);
-//           border: 1px solid #eee;
-//           box-shadow: 0 25px 50px -12px #ddd;
-//           background-color: #fff;
+          border-radius: 12px;
+          margin-right: 12px;
+          overflow: scroll;
+          &:last-child {
+            margin-right: 0px;
+            h4 {
+              color: #ef8e54;
+            }
+          }
+          h4 {
+            margin-top: 10px;
+            margin-left: 10px;
+            color: #999;
+          }
+          textarea {
+            all: unset;
+            @include width-height(100%, 100%);
+            border: 0 solid black;
+            padding: 20px 20px 0;
+            box-sizing: border-box;
+            white-space: pre-wrap;
+          }
+        }
+      }
+      .readOnly {
+        @include width-height(100%, 100%);
+        @include flex-center(row);
+        z-index: 99;
+        div {
+          @include width-height(100%, 100%);
+          border: 1px solid #eee;
+          box-shadow: 0 25px 50px -12px #ddd;
+          background-color: #fff;
 
-//           border-radius: 12px;
-//           margin-right: 12px;
-//           overflow: scroll;
-//           &:last-child {
-//             margin-right: 0px;
-//             h4 {
-//               color: #ef8e54;
-//             }
-//           }
-//           h4 {
-//             margin-top: 10px;
-//             margin-left: 10px;
-//             color: #999;
-//           }
-//           p {
-//             white-space: pre-wrap;
-//             margin: 20px 20px 0;
-//             box-sizing: border-box;
-//           }
-//         }
-//       }
-//       form {
-//         @include width-height(100%, 100%);
-//         transform: translateY(-100%);
+          border-radius: 12px;
+          margin-right: 12px;
+          overflow: scroll;
+          &:last-child {
+            margin-right: 0px;
+            h4 {
+              color: #ef8e54;
+            }
+          }
+          h4 {
+            margin-top: 10px;
+            margin-left: 10px;
+            color: #999;
+          }
+          p {
+            white-space: pre-wrap;
+            margin: 20px 20px 0;
+            box-sizing: border-box;
+          }
+        }
+      }
+      form {
+        @include width-height(100%, 100%);
+        transform: translateY(-100%);
 
-//         .edit {
-//           // transform: translateY(-100%);
-//           @include width-height(100%, 100%);
-//           @include flex-center(row);
+        .edit {
+          // transform: translateY(-100%);
+          @include width-height(100%, 100%);
+          @include flex-center(row);
 
-//           div {
-//             @include width-height(100%, 100%);
-//             border: 1px solid #eee;
-//             // box-shadow: 0 25px 50px -12px #ddd;
-//             background-color: #fff;
+          div {
+            @include width-height(100%, 100%);
+            border: 1px solid #eee;
+            // box-shadow: 0 25px 50px -12px #ddd;
+            background-color: #fff;
 
-//             border-radius: 12px;
-//             margin-right: 12px;
-//             h4 {
-//               margin-top: 10px;
-//               margin-left: 10px;
-//               color: #999;
-//             }
-//             textarea {
-//               all: unset;
-//               @include width-height(100%, 100%);
-//               border: 0 solid black;
-//               padding: 20px 20px 0;
-//               box-sizing: border-box;
-//               white-space: pre-wrap;
-//             }
-//             &:nth-child(7) {
-//               margin-right: 0px;
-//               h4 {
-//                 color: #ef8e54;
-//               }
-//             }
-//           }
-//         }
-//       }
-//       .bgClick {
-//         @include width-height(100vw, 100vh);
-//         position: fixed;
-//         top: 0;
-//         left: 0;
-//         // background-color: #222;
-//       }
-//     }
-//   }
-// }
+            border-radius: 12px;
+            margin-right: 12px;
+            h4 {
+              margin-top: 10px;
+              margin-left: 10px;
+              color: #999;
+            }
+            textarea {
+              all: unset;
+              @include width-height(100%, 100%);
+              border: 0 solid black;
+              padding: 20px 20px 0;
+              box-sizing: border-box;
+              white-space: pre-wrap;
+            }
+            &:nth-child(7) {
+              margin-right: 0px;
+              h4 {
+                color: #ef8e54;
+              }
+            }
+          }
+        }
+      }
+      .bgClick {
+        @include width-height(100vw, 100vh);
+        position: fixed;
+        top: 0;
+        left: 0;
+        // background-color: #222;
+      }
+    }
+  }
+}
