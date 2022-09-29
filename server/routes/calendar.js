@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { Calendar } = require("../models/Calendar");
 
-// # post
+// # 캘린더post
 router.post("/post", (req, res) => {
   const post = new Calendar(req.body);
 
@@ -14,7 +14,7 @@ router.post("/post", (req, res) => {
   });
 });
 
-// # get
+// # 캘린더get
 router.get("/:id", async (req, res, next) => {
   try {
     const calendar = await Calendar.find({ writer: req.params.id }).populate(
