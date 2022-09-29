@@ -1,14 +1,13 @@
 {
   "files": {
-    "main.css": "/myDiary/static/css/main.64b85ebc.css",
-    "main.js": "/myDiary/static/js/main.05ec675a.js",
-    "static/media/bg.png": "/myDiary/static/media/bg.12504f4a2e7792ab0db2.png",
+    "main.css": "/myDiary/static/css/main.47e8f4b0.css",
+    "main.js": "/myDiary/static/js/main.b5309154.js",
     "index.html": "/myDiary/index.html",
-    "main.64b85ebc.css.map": "/myDiary/static/css/main.64b85ebc.css.map",
-    "main.05ec675a.js.map": "/myDiary/static/js/main.05ec675a.js.map"
+    "main.47e8f4b0.css.map": "/myDiary/static/css/main.47e8f4b0.css.map",
+    "main.b5309154.js.map": "/myDiary/static/js/main.b5309154.js.map"
   },
   "entrypoints": [
-    "static/css/main.64b85ebc.css",
-    "static/js/main.05ec675a.js"
+    "static/css/main.47e8f4b0.css",
+    "static/js/main.b5309154.js"
   ]
 }
