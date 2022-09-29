@@ -106,7 +106,7 @@
     box-sizing: border-box;
     background-color: #f8f2e7;
     border-radius: 25px;
-    box-shadow: 0px 0px 60px rgb(225, 160, 115, 0.5);
+    box-shadow: 0 25px 50px -12px rgba(115, 114, 112, 0.2);
     .innerFrame {
       @include width-height(100%, 100%);
       border-radius: 18px;
@@ -442,6 +442,7 @@
         font-size: 40px;
         color: #e35c08;
         cursor: pointer;
+        border: 1px solid #eee;
         box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.1);
         p {
           transition: 0.2s;
@@ -456,6 +457,7 @@
         // background-color: #f2f2f2;
         overflow: scroll;
         position: relative;
+        border: 1px solid #eee;
         box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.1);
         &:hover {
           button {
@@ -770,6 +772,7 @@
 
     .checkList_wrap {
       @include width-height(30%, 100%);
+      border: 1px solid #eee;
       box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
       background-color: #fff;
       border-radius: 12px;
@@ -822,6 +825,7 @@
     }
     .Dday_wrap {
       @include width-height(30%, 100%);
+      border: 1px solid #eee;
       box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
       border-radius: 12px;
       padding: 15px;
@@ -915,6 +919,7 @@
 
         div {
           @include width-height(100%, 100%);
+          border: 1px solid #eee;
           box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
           background-color: #fff;
 
@@ -948,6 +953,7 @@
         z-index: 99;
         div {
           @include width-height(100%, 100%);
+          border: 1px solid #eee;
           box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
           background-color: #fff;
 
@@ -983,6 +989,7 @@
 
           div {
             @include width-height(100%, 100%);
+            border: 1px solid #eee;
             // box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
             background-color: #fff;
 

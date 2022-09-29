@@ -12,7 +12,6 @@ function NewsPage() {
       .then((data) => {
         const articlesData = data.articles;
         setArticles(articlesData);
-        console.log(data);
       });
   }
 
@@ -34,8 +33,8 @@ function NewsPage() {
               <li className="firstList">
                 <h1>오늘의 News</h1>
               </li>
-              {articles.map((article) => (
-                <li>
+              {articles.map((article, i) => (
+                <li key={i}>
                   <a
                     href={article.url}
                     target="_blank"
