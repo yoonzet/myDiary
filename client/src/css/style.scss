@@ -106,7 +106,7 @@
     box-sizing: border-box;
     background-color: #f8f2e7;
     border-radius: 25px;
-    box-shadow: 0 25px 50px -12px rgba(115, 114, 112, 0.2);
+    box-shadow: 0 25px 50px -12px #ddd;
     .innerFrame {
       @include width-height(100%, 100%);
       border-radius: 18px;
@@ -187,7 +187,7 @@
       padding: 35px;
       border-radius: 18px;
       color: #fff;
-      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
+      box-shadow: 0 25px 50px -12px #ddd;
 
       .time {
         @include width-height(150px, 100%);
@@ -258,7 +258,7 @@
           padding: 20px 30px;
           background: #f7995f;
           border-radius: 12px;
-          box-shadow: 0 25px 30px -12px rgb(0 0 0 / 0.1);
+          // box-shadow: 0 25px 30px -12px rgb(0 0 0 / 0.1);
         }
       }
       &:hover {
@@ -314,7 +314,7 @@
       margin: 0 auto;
       border-radius: 12px;
       background-color: #f2f2f2;
-      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
+      box-shadow: 0 25px 50px -12px #ddd;
 
       span {
         margin: 0 20px;
@@ -368,12 +368,12 @@
   }
   .box_diary {
     margin-right: 5%;
-    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
+    box-shadow: 0 25px 50px -12px #ddd;
     background-image: url("https://images.unsplash.com/photo-1594171330477-5b41410e4b75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2938&q=80");
     background-position: 50%;
   }
   .box_planner {
-    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
+    box-shadow: 0 25px 50px -12px #ddd;
     background-image: url("https://images.unsplash.com/photo-1550592704-e397856b4d00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
   }
 }
@@ -401,7 +401,7 @@
       border-radius: 20px;
       margin: 5%;
       border: 1px solid transparent;
-      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+      box-shadow: 0 25px 50px -12px #ddd;
       &:hover {
         p {
           text-decoration: underline;
@@ -443,7 +443,7 @@
         color: #e35c08;
         cursor: pointer;
         border: 1px solid #eee;
-        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.1);
+        box-shadow: 0 25px 50px -12px #eee;
         p {
           transition: 0.2s;
         }
@@ -458,7 +458,7 @@
         overflow: scroll;
         position: relative;
         border: 1px solid #eee;
-        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.1);
+        box-shadow: 0 25px 50px -12px #eee;
         &:hover {
           button {
             opacity: 1;
@@ -685,7 +685,7 @@
     form {
       background-color: #fff;
       border-radius: 15px;
-      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+      box-shadow: 0 25px 50px -12px #ddd;
       width: 400px;
       header {
         background-color: #ddd;
@@ -773,7 +773,7 @@
     .checkList_wrap {
       @include width-height(30%, 100%);
       border: 1px solid #eee;
-      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
+      box-shadow: 0 25px 50px -12px #ddd;
       background-color: #fff;
       border-radius: 12px;
       padding: 15px;
@@ -826,7 +826,7 @@
     .Dday_wrap {
       @include width-height(30%, 100%);
       border: 1px solid #eee;
-      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
+      box-shadow: 0 25px 50px -12px #ddd;
       border-radius: 12px;
       padding: 15px;
       box-sizing: border-box;
@@ -920,7 +920,7 @@
         div {
           @include width-height(100%, 100%);
           border: 1px solid #eee;
-          box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
+          box-shadow: 0 25px 50px -12px #ddd;
           background-color: #fff;
 
           border-radius: 12px;
@@ -954,7 +954,7 @@
         div {
           @include width-height(100%, 100%);
           border: 1px solid #eee;
-          box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
+          box-shadow: 0 25px 50px -12px #ddd;
           background-color: #fff;
 
           border-radius: 12px;
@@ -990,7 +990,7 @@
           div {
             @include width-height(100%, 100%);
             border: 1px solid #eee;
-            // box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.2);
+            // box-shadow: 0 25px 50px -12px #ddd;
             background-color: #fff;
 
             border-radius: 12px;
