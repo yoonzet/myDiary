@@ -37,7 +37,7 @@ app.use("/api", function (req, res) {
 });
 
 // 리액트 정적 파일 제공
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "/client/build")));
 
 // 라우트 설정
 app.get("*", (req, res) => {
