@@ -32,7 +32,7 @@ app.listen(port, () => {
 });
 
 // 미들웨어 함수를 특정 경로에 등록
-app.use("/api/data", function (req, res) {
+app.use("/api", function (req, res) {
   res.json({ greeting: "Hello World" });
 });
 
