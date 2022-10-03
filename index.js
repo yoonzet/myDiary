@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const path = require("path");
 const port = process.env.PORT || 4000;
 const cookieParser = require("cookie-parser");
 const config = require("./config/key");
@@ -30,14 +31,27 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-if (process.env.NODE_ENV === "production") {
-  // app.use(express.static("client/build"));
-  app.use(express.static(path.join(__dirname, "client/build")));
+// 미들웨어 함수를 특정 경로에 등록
+app.use("/api/data", function (req, res) {
+  res.json({ greeting: "Hello World" });
+});
 
-  app.get("*", (req, res) => {
-    res.sendFile(
-      // path.resolve(__dirname, "../client", "build", "index.html", "index.html")
-      path.join(__dirname + "/client/build/index.html")
-    );
-  });
-}
+// 리액트 정적 파일 제공
+app.use(express.static(path.join(__dirname, "client/build")));
+
+// 라우트 설정
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+});
+
+console.log(`server running at http ${port}`);
+
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+
+//   app.get("*", (req, res) => {
+//     res.sendFile(
+//       path.resolve(__dirname, "../client", "build", "index.html", "index.html")
+//     );
+//   });
+// }
