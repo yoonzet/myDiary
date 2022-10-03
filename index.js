@@ -36,13 +36,20 @@ app.use("/api", function (req, res) {
   res.json({ greeting: "Hello World" });
 });
 
-// 리액트 정적 파일 제공
-app.use(express.static(path.join(__dirname, "/client/build")));
-
-// 라우트 설정
+app.use(express.static("client/build"));
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  res.sendFile(
+    require("path").resolve(__dirname, "client", "build", "index.html")
+  );
 });
+
+// // 리액트 정적 파일 제공
+// app.use(express.static(path.join(__dirname, "/client/build")));
+
+// // 라우트 설정
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname + "/client/build/index.html"));
+// });
 
 console.log(`server running at http ${port}`);
 
