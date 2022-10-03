@@ -36,7 +36,7 @@ app.use("/api", function (req, res) {
   res.json({ greeting: "Hello World" });
 });
 
-app.use(express.static("client/build"));
+app.use(express.static(__dirname + "/public"));
 app.get("*", (req, res) => {
   res.sendFile(
     require("path").resolve(__dirname, "client", "build", "index.html")
